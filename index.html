@@ -364,12 +364,13 @@ var words=$$(".w",mt);
 var svc=$("#svc"),strack=$("#strack"),sp=$("#sp"),man=$("#man"),gal=$("#gal"),track=$("#track"),gp=$("#gp"),bar=$("#bar"),nav=$("#nav"),hb=$(".hero .bg"),ht=$("#heroTx"),ph=$("#ph"),phi=$("img",ph);
 function prog(el){var r=el.getBoundingClientRect();return Math.min(1,Math.max(0,-r.top/(r.height-innerHeight)))}
 function size(){if(RM)return;gal.style.height=(track.scrollWidth-innerWidth+innerHeight+60)+"px";svc.style.height=(strack.scrollWidth-innerWidth+innerHeight+60)+"px"}
+var nums=$$("[data-n]");nums.forEach(function(e){RM?e.textContent=e.dataset.n:e.classList.add("pre")});
 function frame(){
 var y=scrollY,H=innerHeight;
 bar.style.transform="scaleX("+(y/(document.documentElement.scrollHeight-H||1))+")";
 nav.classList.toggle("s",y>40);
 if(RM)return;
-nums.forEach(function(el){if(!el.dataset.sp){var rr=el.getBoundingClientRect();if(rr.top<H*.85&&rr.bottom>H*.1)revealNum(el)}});
+nums&&nums.forEach(function(el){if(!el.dataset.sp){var rr=el.getBoundingClientRect();if(rr.top<H*.85&&rr.bottom>H*.1)revealNum(el)}});
 if(hb&&y<H*1.2){hb.style.transform="translate3d(0,"+y*.3+"px,0) scale(1.12)";ht.style.transform="translate3d(0,"+y*.12+"px,0)";ht.style.opacity=Math.max(0,1-y/(H*.7))}
 var p=prog(man),n=words.length;
 words.forEach(function(w,i){var o=Math.min(1,Math.max(.16,(p*1.12*n-i)/3));w.style.opacity=o;w.style.filter=o<.995?"blur("+((1-o)*5).toFixed(1)+"px)":""});
@@ -405,7 +406,6 @@ $$(".rv").forEach(function(e,i){e.style.transitionDelay=(i%4)*70+"ms";io.observe
 function runCount(el){var n=+el.dataset.n,s=performance.now();
 (function step(now){var k=Math.min(1,(now-s)/1400);el.textContent=Math.round(n*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step)})(s)}
 function revealNum(el){if(el.dataset.sp)return;el.dataset.sp=1;sprayNum(el);runCount(el)}
-var nums=$("[data-n]");nums.forEach(function(e){RM?e.textContent=e.dataset.n:e.classList.add("pre")});
 setTimeout(function(){nums.forEach(function(el){if(!el.dataset.sp&&el.getBoundingClientRect().top<innerHeight)revealNum(el)})},3500);
 /* booking */
 var fm=$("#fm"),ok=$("#ok"),dt=$("#dt"),un=$("#un"),sl=$("#slots"),nm=$("#nm");
