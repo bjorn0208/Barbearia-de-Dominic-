@@ -328,6 +328,88 @@
   .nota-stats { text-align:center; color:#9a9077; font-size:12.5px; margin-top:14px; }
   footer a { color:#c9a227; text-decoration:none; border-bottom:1px solid rgba(201,162,39,.35); }
   footer li b { color:#cfc6b4; font-weight:normal; }
+  /* ---------- manifesto que acende ---------- */
+  #sobre .manifesto { font-family:'Playfair Display', Didot, Georgia, serif; font-size:clamp(30px, 5vw, 54px); line-height:1.28;
+    text-align:center; max-width:900px; margin:0 auto 70px; font-weight:normal; }
+  #sobre .manifesto .w { color:#4a4130; transition:color .6s, text-shadow .6s; }
+  #sobre .manifesto .w.acesa { color:#f4ead2; text-shadow:0 0 26px rgba(231,199,102,.22); }
+  #sobre .manifesto .w.ouro { color:#cfa73d; }
+  #sobre .manifesto .w.ouro.acesa { color:#e7c766; text-shadow:0 0 30px rgba(231,199,102,.5); }
+
+  /* ---------- galeria: scroll horizontal pinado ---------- */
+  .gpin { position:relative; }
+  .gbelt { position:sticky; top:0; height:100vh; height:100svh; display:flex; flex-direction:column; justify-content:center; overflow:hidden; }
+  .gtrack { display:flex; gap:22px; padding:0 6vw; will-change:transform; }
+  .gcard { margin:0; flex:0 0 auto; width:min(430px, 82vw); }
+  .gcard .gfoto { height:min(48vh, 410px); }
+  .gbtn { display:block; width:calc(100% - 28px); margin:2px 14px 14px; padding:11px 0; background:none;
+    border:1px solid rgba(201,162,39,.5); border-radius:3px; color:#e7c766; font-size:12px; letter-spacing:.18em;
+    text-transform:uppercase; cursor:pointer; transition:background .3s, color .3s; }
+  .gbtn:hover { background:#c9a227; color:#161209; }
+  .gbar { width:40%; max-width:320px; margin:30px auto 0; height:2px; background:rgba(201,162,39,.2); position:relative; border-radius:2px; }
+  .gbar i { position:absolute; left:0; top:0; bottom:0; width:0; background:#c9a227; border-radius:2px; }
+
+  /* ---------- serviços: letreiros neon ---------- */
+  .neon-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(230px, 1fr)); gap:20px; max-width:1000px; margin:0 auto; }
+  .neon { font-family:'Arial Black', Arial, sans-serif; font-weight:900; font-size:clamp(22px, 2.6vw, 34px);
+    text-transform:uppercase; letter-spacing:.04em; text-align:center; padding:28px 14px; background:#0b0805;
+    border:2px solid currentColor; border-radius:8px; outline:1px dashed rgba(255,230,170,.22); outline-offset:6px;
+    cursor:pointer; transition:transform .3s; animation:neonFlick 6s ease-in-out infinite; }
+  .neon:hover { transform:translateY(-4px) scale(1.02); }
+  .neon:nth-child(2n) { animation-delay:2.4s; }
+  .neon:nth-child(3n) { animation-delay:4.1s; }
+  .neon.c-o { color:#e7c766; text-shadow:0 0 8px rgba(231,199,102,.75), 0 0 26px rgba(231,199,102,.4); box-shadow:0 0 16px rgba(231,199,102,.2), inset 0 0 14px rgba(231,199,102,.12); }
+  .neon.c-r { color:#e06a4a; text-shadow:0 0 8px rgba(224,106,74,.75), 0 0 26px rgba(224,106,74,.4); box-shadow:0 0 16px rgba(224,106,74,.2), inset 0 0 14px rgba(224,106,74,.12); }
+  .neon.c-b { color:#9fd8e8; text-shadow:0 0 8px rgba(159,216,232,.75), 0 0 26px rgba(159,216,232,.4); box-shadow:0 0 16px rgba(159,216,232,.2), inset 0 0 14px rgba(159,216,232,.12); }
+  .neon.ativo { transform:scale(1.04); }
+  @keyframes neonFlick { 0%, 92%, 96%, 100% { opacity:1; } 94% { opacity:.72; } }
+  .led-roll { overflow:hidden; border-top:1px solid rgba(201,162,39,.35); border-bottom:1px solid rgba(201,162,39,.35);
+    background:#070503; margin-top:44px; padding:14px 0; }
+  .led { display:flex; gap:56px; width:max-content; animation:rolar 26s linear infinite; }
+  .led span { font-family:'Arial Black', Arial, sans-serif; font-size:15px; letter-spacing:.32em; text-transform:uppercase;
+    color:#e7c766; text-shadow:0 0 12px rgba(231,199,102,.8); white-space:nowrap; }
+
+  /* ---------- ficha de barbearia + ticket ---------- */
+  .palco { display:grid; grid-template-columns:minmax(0, 1.35fr) minmax(260px, 285px); gap:34px; max-width:1040px; margin:0 auto; align-items:start; }
+  .poste { height:10px; border-radius:2px; margin:0 0 26px;
+    background:repeating-linear-gradient(-45deg, #b04a3a 0 14px, #f4ead2 14px 28px); background-size:56px 100%;
+    animation:posteRoll 1.3s linear infinite; }
+  @keyframes posteRoll { to { background-position:56px 0; } }
+  .passo { font-size:11px; letter-spacing:.24em; text-transform:uppercase; color:#c9a227; margin:26px 0 12px; }
+  .passo::before { content:'● '; font-size:8px; vertical-align:3px; }
+  .chips { display:flex; flex-wrap:wrap; gap:10px; }
+  .chip-s { background:none; border:1px solid rgba(201,162,39,.4); border-radius:999px; color:#cfc6b4;
+    padding:9px 16px; font-size:13px; cursor:pointer; transition:all .25s; }
+  .chip-s:hover { border-color:#c9a227; color:#e7c766; }
+  .chip-s.ativo { background:linear-gradient(135deg, #d8b45a, #a8811d); color:#161209; border-color:transparent; font-weight:bold; }
+  .ticket { position:sticky; top:90px; background:#f4ead2; color:#2a2318; border-radius:6px; padding:18px 18px 14px;
+    font-family:ui-monospace, 'Courier New', monospace; box-shadow:0 20px 50px rgba(0,0,0,.5); }
+  .t-topo { font-size:11px; letter-spacing:.14em; text-align:center; border-bottom:1px dashed #b3a586; padding-bottom:10px; margin-bottom:10px; font-weight:bold; }
+  .t-linhas div { display:flex; justify-content:space-between; gap:10px; font-size:12px; padding:5px 0; border-bottom:1px dotted #cfc2a4; }
+  .t-linhas span { color:#7a6f57; text-transform:uppercase; font-size:10px; letter-spacing:.1em; }
+  .t-linhas b { text-align:right; overflow-wrap:anywhere; }
+  .t-total { border-bottom:none !important; }
+  .t-total b { color:#8a5a10; font-size:14px; }
+  .t-cod { height:38px; margin-top:12px; background:repeating-linear-gradient(90deg, #2a2318 0 2px, transparent 2px 4px, #2a2318 4px 7px, transparent 7px 9px, #2a2318 9px 10px, transparent 10px 13px, #2a2318 13px 15px, transparent 15px 18px); }
+  .t-pe { font-size:9px; letter-spacing:.08em; text-align:center; color:#7a6f57; margin-top:8px; text-transform:uppercase; }
+
+  /* ---------- preços e serviços: fontes mais discretas ---------- */
+  #precos h2.title, #servicos h2.title { font-size:clamp(24px, 3.2vw, 34px); }
+  #precos .pgrid { gap:16px; }
+  #precos .pcard .nome { font-size:15px; }
+  #precos .pcard .preco { font-size:26px; }
+  #precos .pcard li { font-size:12.5px; }
+
+  @media (max-width: 720px) {
+    .palco { grid-template-columns:1fr; }
+    .ticket { position:static; max-width:430px; margin:26px auto 0; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .neon, .led, .poste { animation:none !important; }
+    .gbelt { position:static; height:auto; }
+    .gtrack { overflow-x:auto; transform:none !important; }
+    .gpin { height:auto !important; }
+  }
   @media (max-width: 720px) {
     .links { position:fixed; inset:0; background:rgba(10,8,6,.97); flex-direction:column; align-items:center; justify-content:center;
              gap:34px; font-size:17px; opacity:0; visibility:hidden; transition:opacity .4s, visibility .4s; }
@@ -375,6 +457,7 @@
     <a href="#inicio">Início</a>
     <a href="#sobre">A Casa</a>
     <a href="#galeria">O Espaço</a>
+    <a href="#servicos">Serviços</a>
     <a href="#precos">Preços</a>
     <a href="#equipe">Equipe</a>
     <a href="#agendar">Agendar</a>
@@ -401,14 +484,11 @@
 
 <!-- ================= SOBRE / STATS ================= -->
 <section id="sobre">
-  <span class="tag reveal">Sobre-nós</span>
-  <h2 class="title reveal atraso-1">Onde o ESTILO encontra a ELEGÂNCIA</h2>
-  <p class="sub reveal atraso-2">O nome Ganza vem do sufixo de "Eleganza". O conceito é simples: excelência no
-     atendimento e nos serviços para um público vaidoso, moderno e que preza pela elegância.</p>
+  <h2 class="manifesto" id="manifestoTxt">Ganza vem de Eleganza — a arte do detalhe em cada corte, em cada barba, em cada atendimento.</h2>
   <div class="faixa">
-    <div class="reveal esq"><span class="n">5</span><span class="t">Unidades em SP</span></div>
-    <div class="reveal zoom atraso-1"><span class="n">7</span><span class="t">Dias por semana*</span></div>
-    <div class="reveal dir atraso-2"><span class="n">1</span><span class="t">Espaço Kids — Morumbi</span></div>
+    <div class="reveal esq"><span class="n" data-conta="5">0</span><span class="t">Unidades em SP</span></div>
+    <div class="reveal zoom atraso-1"><span class="n" data-conta="7">0</span><span class="t">Dias por semana*</span></div>
+    <div class="reveal dir atraso-2"><span class="n" data-conta="1">0</span><span class="t">Espaço Kids — Morumbi</span></div>
   </div>
   <p class="nota-stats">*No domingo, o atendimento vai até as 13h30.</p>
 </section>
@@ -426,16 +506,43 @@
 <section id="galeria">
   <span class="tag reveal">O espaço</span>
   <h2 class="title reveal atraso-1">Conheça nossas unidades</h2>
-  <p class="sub reveal atraso-2">Ambiente climatizado, cerveja gelada e aquele papo — em todos os endereços da Ganza.</p>
-  <div class="ggrid">
-        <figure class="gcard reveal"><div class="gfoto gf1" role="img" aria-label="Fachada da unidade Morumbi da Ganza Barbearia"></div><figcaption>Unidade Morumbi — Fachada</figcaption></figure>
-    <figure class="gcard reveal atraso-1"><div class="gfoto gf2" role="img" aria-label="Cadeira de barbeiro da unidade Morumbi"></div><figcaption>Unidade Morumbi — Cadeira</figcaption></figure>
-    <figure class="gcard reveal atraso-2"><div class="gfoto gf3" role="img" aria-label="Cadeira de barbeiro da unidade Frei Caneca"></div><figcaption>Unidade Frei Caneca — Cadeira</figcaption></figure>
-    <figure class="gcard reveal"><div class="gfoto gf4" role="img" aria-label="Letreiro neon da unidade Center 3, na Avenida Paulista"></div><figcaption>Unidade Paulista — Letreiro</figcaption></figure>
-    <figure class="gcard reveal atraso-1"><div class="gfoto gf5" role="img" aria-label="Interior da unidade Shopping Ibirapuera"></div><figcaption>Unidade Ibirapuera</figcaption></figure>
-    <figure class="gcard reveal atraso-2"><div class="gfoto gf6" role="img" aria-label="Entrada da unidade Frei Caneca"></div><figcaption>Unidade Frei Caneca</figcaption></figure>
-    <figure class="gcard reveal"><div class="gfoto gf7" role="img" aria-label="Espaço Kids da unidade Morumbi"></div><figcaption>Espaço Kids — Morumbi</figcaption></figure>
-    <figure class="gcard reveal atraso-1"><div class="gfoto gf8" role="img" aria-label="Agendamento online da Ganza Barbearia"></div><figcaption>Agende Online</figcaption></figure>
+  <p class="sub reveal atraso-2">Continue rolando desliza pelas cadeiras — em cada foto, agende na hora.</p>
+  <div class="gpin" id="gpin">
+    <div class="gbelt">
+      <div class="gtrack" id="gtrack">
+      <figure class="gcard"><div class="gfoto gf1" role="img" aria-label="Fachada da unidade Morumbi da Ganza Barbearia"></div><figcaption>Unidade Morumbi — Fachada</figcaption><button type="button" class="gbtn" data-u="Unidade Morumbi">Agendar nesta unidade</button></figure>
+      <figure class="gcard"><div class="gfoto gf2" role="img" aria-label="Cadeira de barbeiro da unidade Morumbi"></div><figcaption>Unidade Morumbi — Cadeira</figcaption><button type="button" class="gbtn" data-u="Unidade Morumbi">Agendar nesta unidade</button></figure>
+      <figure class="gcard"><div class="gfoto gf3" role="img" aria-label="Cadeira de barbeiro da unidade Frei Caneca"></div><figcaption>Unidade Frei Caneca — Cadeira</figcaption><button type="button" class="gbtn" data-u="Unidade Frei Caneca">Agendar nesta unidade</button></figure>
+      <figure class="gcard"><div class="gfoto gf4" role="img" aria-label="Letreiro neon da unidade Center 3, na Avenida Paulista"></div><figcaption>Unidade Paulista — Letreiro</figcaption><button type="button" class="gbtn" data-u="Unidade Center 3 — Paulista">Agendar nesta unidade</button></figure>
+      <figure class="gcard"><div class="gfoto gf5" role="img" aria-label="Interior da unidade Shopping Ibirapuera"></div><figcaption>Unidade Ibirapuera</figcaption><button type="button" class="gbtn" data-u="Unidade Shopping Ibirapuera">Agendar nesta unidade</button></figure>
+      <figure class="gcard"><div class="gfoto gf6" role="img" aria-label="Entrada da unidade Frei Caneca"></div><figcaption>Unidade Frei Caneca</figcaption><button type="button" class="gbtn" data-u="Unidade Frei Caneca">Agendar nesta unidade</button></figure>
+      <figure class="gcard"><div class="gfoto gf7" role="img" aria-label="Espaço Kids da unidade Morumbi"></div><figcaption>Espaço Kids — Morumbi</figcaption><button type="button" class="gbtn" data-u="Unidade Morumbi">Agendar nesta unidade</button></figure>
+      <figure class="gcard"><div class="gfoto gf8" role="img" aria-label="Agendamento online da Ganza Barbearia"></div><figcaption>Agende Online</figcaption><button type="button" class="gbtn" data-u="">Agendar horário</button></figure>
+      </div>
+      <div class="gbar" aria-hidden="true"><i id="gbarFill"></i></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SERVIÇOS — LETREIROS NEON ================= -->
+<section id="servicos">
+  <span class="tag reveal">Menu completo</span>
+  <h2 class="title reveal atraso-1">O que a Ganza faz</h2>
+  <p class="sub reveal atraso-2">Toque em um letreiro e já cai na ficha de reserva.</p>
+  <div class="neon-grid">
+    <button type="button" class="neon c-o reveal" data-v="Cabelo">Cabelo</button>
+    <button type="button" class="neon c-r reveal atraso-1" data-v="Barba">Barba</button>
+    <button type="button" class="neon c-b reveal atraso-2" data-v="Cabelo + Barba">Cabelo + Barba</button>
+    <button type="button" class="neon c-r reveal" data-v="Barboterapia">Barboterapia</button>
+    <button type="button" class="neon c-b reveal atraso-1" data-v="Coloração">Coloração</button>
+    <button type="button" class="neon c-o reveal atraso-2" data-v="Selagem">Selagem</button>
+    <button type="button" class="neon c-b reveal" data-v="Platinado">Platinado</button>
+    <button type="button" class="neon c-o reveal atraso-1" data-v="Luzes / Reflexo">Luzes &amp; Reflexo</button>
+    <button type="button" class="neon c-r reveal atraso-2" data-v="Despigmentação">Despigmentação</button>
+    <button type="button" class="neon c-o reveal" data-v="Sombrancelha">Sombrancelha</button>
+  </div>
+  <div class="led-roll" aria-hidden="true">
+    <div class="led"><span>Cabelo &middot; Barba</span><span>Barboterapia</span><span>Colora&ccedil;&atilde;o</span><span>Selagem</span><span>Platinado</span><span>Luzes &amp; Reflexo</span><span>Despigmenta&ccedil;&atilde;o</span><span>Sombrancelha</span><span>Cerveja gelada</span><span>Cabelo &middot; Barba</span><span>Barboterapia</span><span>Colora&ccedil;&atilde;o</span><span>Selagem</span><span>Platinado</span><span>Luzes &amp; Reflexo</span><span>Despigmenta&ccedil;&atilde;o</span><span>Sombrancelha</span><span>Cerveja gelada</span></div>
   </div>
 </section>
 
@@ -531,77 +638,90 @@
 <section id="agendar">
   <span class="tag reveal">Reserve sua cadeira</span>
   <h2 class="title reveal atraso-1">Marque um horário</h2>
-  <p class="sub reveal atraso-2">Escolha o dia e o serviço — sua solicitação vai direto para o WhatsApp da central.</p>
+  <p class="sub reveal atraso-2">Ficha rápida — ao enviar, seu pedido vai direto para o WhatsApp da central.</p>
 
-  <div class="form-wrap reveal zoom">
-    <form id="formAgenda" novalidate>
-      <div class="grid2">
-        <div class="campo">
-          <label for="fNome">Seu nome</label>
-          <input id="fNome" type="text" placeholder="Como te chamamos?" autocomplete="name">
+  <div class="palco">
+    <div class="form-wrap reveal zoom">
+      <div class="poste" aria-hidden="true"></div>
+      <form id="formAgenda" novalidate>
+        <p class="passo">1 · Qual serviço?</p>
+        <div class="chips" id="chipsServ">
+          <button type="button" class="chip-s" data-v="Cabelo">Cabelo</button>
+          <button type="button" class="chip-s" data-v="Barba">Barba</button>
+          <button type="button" class="chip-s" data-v="Cabelo + Barba">Cabelo + Barba</button>
+          <button type="button" class="chip-s" data-v="Bigode ou Pezinho">Bigode ou Pezinho</button>
+          <button type="button" class="chip-s" data-v="Barboterapia">Barboterapia</button>
+          <button type="button" class="chip-s" data-v="Coloração">Coloração</button>
+          <button type="button" class="chip-s" data-v="Platinado">Platinado</button>
         </div>
-        <div class="campo">
-          <label for="fZap">WhatsApp</label>
-          <input id="fZap" type="tel" placeholder="(00) 90000-0000" autocomplete="tel" inputmode="tel">
+        <input type="hidden" id="fServico" value="">
+
+        <p class="passo">2 · Onde e quando?</p>
+        <div class="grid2">
+          <div class="campo">
+            <label for="fProf">Unidade</label>
+            <select id="fProf">
+              <option value="">Sem preferência</option>
+              <option>Unidade Morumbi</option>
+              <option>Unidade Frei Caneca</option>
+              <option>Unidade Shopping Ibirapuera</option>
+              <option>Unidade Center 3 — Paulista</option>
+              <option>Unidade Pátio — Paulista</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="fData">Data</label>
+            <input id="fData" type="date">
+          </div>
         </div>
+
+        <p class="passo">3 · Que horas?</p>
+        <div class="chips" id="chipsHora"></div>
+        <input type="hidden" id="fHora" value="">
+
+        <p class="passo">4 · Quem senta na cadeira?</p>
+        <div class="grid2">
+          <div class="campo">
+            <label for="fNome">Seu nome</label>
+            <input id="fNome" type="text" placeholder="Como te chamamos?" autocomplete="name">
+          </div>
+          <div class="campo">
+            <label for="fZap">WhatsApp</label>
+            <input id="fZap" type="tel" placeholder="(00) 90000-0000" autocomplete="tel" inputmode="tel">
+          </div>
+        </div>
+
+        <div class="campo">
+          <label for="fObs">Observações (opcional)</label>
+          <textarea id="fObs" rows="2" placeholder="Ex.: máquina 2 nas laterais, degradê baixo…"></textarea>
+        </div>
+
+        <div class="aviso" id="aviso"></div>
+        <button class="btn-form" type="submit">Confirmar agendamento</button>
+      </form>
+
+      <div id="confirm">
+        <div class="ok">✓</div>
+        <h3>Horário separado!</h3>
+        <p id="resumo"></p>
+        <a class="cta" id="btnZapC" href="https://wa.me/5511998563462" target="_blank" rel="noopener" style="display:inline-block; margin:8px 0 18px;">Enviar no WhatsApp</a>
+        <p class="nota">Envie a mensagem que abriu no WhatsApp para travar o seu horário. Chegue com 5 minutos de folga — a cerveja gelada é por nossa conta.</p>
+        <button class="btn-form" id="btnNovo" type="button">Fazer outro agendamento</button>
       </div>
+    </div>
 
-      <div class="grid2">
-        <div class="campo">
-          <label for="fServico">Serviço</label>
-          <select id="fServico">
-            <option value="">Escolha o serviço…</option>
-            <option>Cabelo</option>
-            <option>Barba</option>
-            <option>Cabelo + Barba</option>
-            <option>Bigode ou Pezinho</option>
-          </select>
-        </div>
-        <div class="campo">
-          <label for="fProf">Unidade</label>
-          <select id="fProf">
-            <option value="">Sem preferência</option>
-            <option>Unidade Morumbi</option>
-            <option>Unidade Frei Caneca</option>
-            <option>Unidade Shopping Ibirapuera</option>
-            <option>Unidade Center 3 — Paulista</option>
-            <option>Unidade Pátio — Paulista</option>
-          </select>
-        </div>
+    <div class="ticket reveal atraso-2" id="ticket" aria-live="polite">
+      <div class="t-topo">GANZA BARBEARIA · FICHA DE RESERVA</div>
+      <div class="t-linhas">
+        <div><span>Cliente</span><b id="tCliente">—</b></div>
+        <div><span>Serviço</span><b id="tServico">—</b></div>
+        <div><span>Unidade</span><b id="tUnidade">—</b></div>
+        <div><span>Data</span><b id="tData">—</b></div>
+        <div><span>Hora</span><b id="tHora">—</b></div>
+        <div class="t-total"><span>Estimado</span><b id="tTotal">confirme no zap</b></div>
       </div>
-
-      <div class="grid2">
-        <div class="campo">
-          <label for="fData">Data</label>
-          <input id="fData" type="date">
-        </div>
-        <div class="campo">
-          <label for="fHora">Horário</label>
-          <select id="fHora">
-            <option value="">Escolha o horário…</option>
-            <option>09:00</option><option>10:00</option><option>11:00</option>
-            <option>13:00</option><option>14:00</option><option>15:00</option>
-            <option>16:00</option><option>17:00</option><option>18:00</option><option>19:00</option>
-          </select>
-        </div>
-      </div>
-
-      <div class="campo">
-        <label for="fObs">Observações (opcional)</label>
-        <textarea id="fObs" rows="3" placeholder="Ex.: máquina 2 nas laterais, degradê baixo…"></textarea>
-      </div>
-
-      <div class="aviso" id="aviso"></div>
-      <button class="btn-form" type="submit">Confirmar agendamento</button>
-    </form>
-
-    <div id="confirm">
-      <div class="ok">✓</div>
-      <h3>Horário reservado!</h3>
-      <p id="resumo"></p>
-      <a class="cta" id="btnZapC" href="https://wa.me/5511998563462" target="_blank" rel="noopener" style="display:inline-block; margin:8px 0 18px;">Confirmar no WhatsApp</a>
-      <p class="nota">Envie a mensagem que abriu no WhatsApp para travar o seu horário. Chegue com 5 minutos de folga — a cerveja gelada é por nossa conta.</p>
-      <button class="btn-form" id="btnNovo" type="button">Fazer outro agendamento</button>
+      <div class="t-cod" aria-hidden="true"></div>
+      <div class="t-pe">guarde esta ficha · chegue com 5 min de folga</div>
     </div>
   </div>
 </section>
@@ -688,6 +808,7 @@
 
     var max = document.documentElement.scrollHeight - window.innerHeight;
     progress.style.width = (max > 0 ? (y / max) * 100 : 0) + '%';
+    atualizaScrollExtra();
 
     if (!reduced && y < window.innerHeight && y > 0) {
       document.querySelector('header').style.transform = 'translateY(' + (y * 0.18) + 'px)';
@@ -758,8 +879,7 @@
   // horários dinâmicos: domingo até 13h30 (último 12:00); hoje bloqueia horas passadas
   var HORAS_FIXAS = ['09:00','10:00','11:00','13:00','14:00','15:00','16:00','17:00','18:00','19:00'];
   function recarregaHoras() {
-    var horaEl = $('#fHora');
-    var escolhido = horaEl.value;
+    var escolhido = $('#fHora').value;
     var opts = HORAS_FIXAS.slice();
     if (fData.value) {
       var p = fData.value.split('-');
@@ -775,8 +895,10 @@
         });
       }
     }
-    horaEl.innerHTML = '<option value="">Escolha o horário…</option>' +
-      opts.map(function (h) { return '<option' + (h === escolhido ? ' selected' : '') + '>' + h + '</option>'; }).join('');
+    $('#chipsHora').innerHTML = opts.map(function (h) {
+      return '<button type="button" class="chip-s' + (h === escolhido ? ' ativo' : '') + '" data-v="' + h + '">' + h + '</button>';
+    }).join('');
+    if (escolhido && opts.indexOf(escolhido) < 0) $('#fHora').value = '';
   }
   recarregaHoras();
   fData.addEventListener('change', recarregaHoras);
@@ -836,6 +958,118 @@
     form.style.display = '';
     confirmEl.style.display = 'none';
     aviso.style.display = 'none';
+  });
+
+  /* ---------- scrolling cinematográfico ---------- */
+  var manifesto = $('#manifestoTxt');
+  var gpin = $('#gpin');
+  var gtrack = $('#gtrack');
+  var barrinha = $('#gbarFill');
+  var palavras = [];
+  if (manifesto) {
+    var txtM = manifesto.textContent.trim().split(/\s+/);
+    manifesto.textContent = '';
+    palavras = txtM.map(function (w) {
+      var sp = document.createElement('span');
+      sp.className = 'w' + (w.indexOf('Eleganza') === 0 ? ' ouro' : '');
+      sp.textContent = w + ' ';
+      manifesto.appendChild(sp);
+      return sp;
+    });
+  }
+
+  function atualizaScrollExtra() {
+    if (!manifesto || !palavras.length) return;
+    var vh = window.innerHeight;
+    var rect = manifesto.getBoundingClientRect();
+    var prog = Math.max(0, Math.min(1, (vh * 0.78 - rect.top) / (rect.height + vh * 0.3)));
+    var acesas = Math.round(prog * palavras.length);
+    for (var i = 0; i < palavras.length; i++) palavras[i].classList.toggle('acesa', i < acesas);
+
+    if (gpin && gtrack && !reduced) {
+      var g = gpin.getBoundingClientRect();
+      var alturaPin = gpin.offsetHeight - vh;
+      var p2 = alturaPin > 0 ? Math.max(0, Math.min(1, -g.top / alturaPin)) : 1;
+      var dist = Math.max(0, gtrack.scrollWidth - (gbelt ? gbelt.clientWidth : window.innerWidth));
+      gtrack.style.transform = 'translateX(' + (-dist * p2) + 'px)';
+      if (barrinha) barrinha.style.width = (p2 * 100) + '%';
+    }
+  }
+  var gbelt = gpin ? gpin.querySelector('.gbelt') : null;
+  function ajustaGaleria() {
+    if (!gpin || !gtrack) return;
+    if (reduced) { gpin.style.height = 'auto'; return; }
+    var dist = gtrack.scrollWidth - window.innerWidth;
+    gpin.style.height = Math.ceil(window.innerHeight + Math.max(0, dist + window.innerHeight * 0.12)) + 'px';
+  }
+  ajustaGaleria();
+  window.addEventListener('resize', ajustaGaleria);
+
+  /* ---------- contadores animados ---------- */
+  var contagens = document.querySelectorAll('[data-conta]');
+  if ('IntersectionObserver' in window && !reduced) {
+    var ioC = new IntersectionObserver(function (entries) {
+      entries.forEach(function (en) {
+        if (!en.isIntersecting) return;
+        ioC.unobserve(en.target);
+        var alvo = +en.target.getAttribute('data-conta'), t0 = null;
+        function passo(ts) {
+          if (!t0) t0 = ts;
+          var p = Math.min(1, (ts - t0) / 1100);
+          en.target.textContent = Math.round(alvo * (1 - Math.pow(1 - p, 3)));
+          if (p < 1) requestAnimationFrame(passo);
+        }
+        requestAnimationFrame(passo);
+      });
+    }, { threshold: 0.6 });
+    contagens.forEach(function (el) { ioC.observe(el); });
+  } else {
+    contagens.forEach(function (el) { el.textContent = el.getAttribute('data-conta'); });
+  }
+
+  /* ---------- ficha: chips de serviço/hora + ticket ---------- */
+  var PRECOS = { 'Cabelo':'R$ 65', 'Barba':'R$ 45', 'Cabelo + Barba':'R$ 100', 'Bigode ou Pezinho':'R$ 25' };
+  function atualizaTicket() {
+    $('#tCliente').textContent = $('#fNome').value.trim() || '—';
+    $('#tServico').textContent = $('#fServico').value || '—';
+    $('#tUnidade').textContent = ($('#fProf').value || 'Sem preferência').replace('Unidade ', '');
+    $('#tData').textContent = $('#fData').value ? $('#fData').value.split('-').reverse().join('/') : '—';
+    $('#tHora').textContent = $('#fHora').value || '—';
+    $('#tTotal').textContent = PRECOS[$('#fServico').value] || 'confirme no zap';
+  }
+  form.addEventListener('input', atualizaTicket);
+  form.addEventListener('change', atualizaTicket);
+  atualizaTicket();
+
+  function marcaServico(v) {
+    $('#fServico').value = v;
+    document.querySelectorAll('#chipsServ .chip-s, button.neon').forEach(function (bx) {
+      bx.classList.toggle('ativo', bx.getAttribute('data-v') === v);
+    });
+    aviso.style.display = 'none';
+    atualizaTicket();
+  }
+  function vaiPraFicha() {
+    document.querySelector('#agendar').scrollIntoView({ behavior: reduced ? 'auto' : 'smooth', block: 'start' });
+  }
+  document.querySelectorAll('#chipsServ .chip-s, button.neon').forEach(function (b) {
+    b.addEventListener('click', function () { marcaServico(b.getAttribute('data-v')); vaiPraFicha(); });
+  });
+  $('#chipsHora').addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('button.chip-s') : null;
+    if (!b) return;
+    $('#fHora').value = b.getAttribute('data-v');
+    document.querySelectorAll('#chipsHora .chip-s').forEach(function (o) { o.classList.toggle('ativo', o === b); });
+    aviso.style.display = 'none';
+    atualizaTicket();
+  });
+  document.querySelectorAll('.gbtn').forEach(function (b) {
+    b.addEventListener('click', function () {
+      if (b.getAttribute('data-u')) $('#fProf').value = b.getAttribute('data-u');
+      aviso.style.display = 'none';
+      atualizaTicket();
+      vaiPraFicha();
+    });
   });
 
   /* ---------- ano + parallax pelo mouse no hero ---------- */
