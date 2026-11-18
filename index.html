@@ -36,8 +36,12 @@ nav.s{background:rgba(21,16,12,.88);backdrop-filter:blur(10px);padding-block:10p
 .logo i{color:var(--brass);font-weight:500}
 nav ul{display:flex;gap:28px;list-style:none;margin:0;padding:0;align-items:center}
 nav a{text-decoration:none;font-size:.92rem}nav ul a:hover{color:var(--brass)}
-.btn{display:inline-block;background:var(--brick);color:#fff;padding:14px 28px;border:0;border-radius:2px;font:700 .98rem var(--sans);text-decoration:none;cursor:pointer;transition:background .25s,transform .25s}
-.btn:hover{background:#c9633a;transform:translateY(-2px)}
+.btn{display:inline-block;position:relative;overflow:hidden;background:linear-gradient(135deg,#c9603a,#a34226);color:#fff;padding:15px 30px;border:0;border-radius:2px;font:700 .98rem var(--sans);letter-spacing:.07em;text-transform:uppercase;box-shadow:0 8px 24px rgba(179,67,38,.35),inset 0 1px 0 rgba(255,255,255,.22);text-decoration:none;cursor:pointer;transition:transform .25s,box-shadow .25s,filter .25s}
+.btn::after{content:"";position:absolute;top:-10px;bottom:-10px;left:-90px;width:60px;background:linear-gradient(90deg,transparent,rgba(255,255,255,.45),transparent);transform:skewX(-20deg);animation:sheen 4.6s ease infinite}
+@keyframes sheen{0%,58%{transform:skewX(-20deg) translateX(0)}100%{transform:skewX(-20deg) translateX(860px)}}
+.btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(179,67,38,.5),inset 0 1px 0 rgba(255,255,255,.25);filter:brightness(1.07)}
+.btn:focus-visible{outline:2px solid var(--brass);outline-offset:2px}
+.btn.o::after{display:none}
 .btn.o{background:none;border:1px solid var(--brass);color:var(--bone)}.btn.o:hover{background:rgba(200,164,92,.14)}
 @media(max-width:760px){nav ul li:not(:last-child){display:none}}
 /* intro */
@@ -170,12 +174,17 @@ html.intro .hero h1,html.intro .hero p,html.intro .hero .cta,html.intro .hero-lo
 @media(max-width:560px){.row h3{font-size:1.2rem}.row b{font-size:1.25rem}.row p{font-size:.85rem;margin-top:2px}.row{padding:14px 0}}
 /* quotes */
 #dep{background:var(--bg2)}
-.q{display:grid;grid-template-columns:repeat(2,1fr);gap:clamp(20px,4vw,48px);margin-top:48px}
-blockquote{margin:0;padding:28px 0 0;border-top:1px solid var(--brass)}
-blockquote p{font:500 1.55rem/1.3 var(--serif);margin:0 0 16px}
-blockquote cite{font-style:normal;color:var(--mut);font-size:.9rem}
-.st{color:var(--brass);letter-spacing:3px;margin-bottom:8px}
-@media(max-width:760px){.q{grid-template-columns:1fr}}
+.led{position:relative;max-width:860px;margin:52px auto 0;background:radial-gradient(120% 140% at 50% 0%,#12150a,#070805 70%);border:1px solid rgba(200,164,92,.55);border-radius:10px;padding:clamp(28px,4vw,46px);box-shadow:inset 0 0 70px rgba(0,0,0,.9),inset 0 0 26px rgba(0,0,0,.7),0 0 0 7px #191309,0 0 40px rgba(200,164,92,.14),0 26px 70px rgba(0,0,0,.5)}
+.led::after{content:"";position:absolute;inset:0;border-radius:10px;pointer-events:none;background:repeating-linear-gradient(0deg,rgba(0,0,0,.38) 0 2px,transparent 2px 4px)}
+.led-stars{color:#ffce7a;letter-spacing:7px;font-size:1.05rem;text-align:center;text-shadow:0 0 16px rgba(255,190,90,.7);margin-bottom:20px}
+.led-tx{border:0;padding:0;margin:0 auto;max-width:48ch;text-align:center;font:400 clamp(1.12rem,2.6vw,1.6rem)/1.55 "Courier New",ui-monospace,monospace;color:#ffce7a;text-shadow:0 0 16px rgba(255,190,90,.5),0 0 3px rgba(255,214,140,.8);min-height:7.4em}
+.led-tx .crs{display:inline-block;margin-left:2px;animation:piscar 1.05s steps(1) infinite}
+@keyframes piscar{50%{opacity:0}}
+.led cite{display:block;text-align:center;font-style:normal;color:var(--brass);font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;margin-top:20px;min-height:1.2em;text-shadow:0 0 12px rgba(200,164,92,.4)}
+.led-dots{display:flex;gap:12px;justify-content:center;margin-top:24px;position:relative;z-index:2}
+.led .dot{width:9px;height:9px;border-radius:50%;border:1px solid var(--brass);background:none;cursor:pointer;padding:0}
+.led .dot.on{background:var(--brass);box-shadow:0 0 10px rgba(200,164,92,.9)}
+@media(max-width:760px){.led-tx{min-height:12em}}
 /* form */
 .book{display:grid;grid-template-columns:1.35fr 1fr;gap:clamp(24px,4vw,56px);margin-top:44px;align-items:start}
 .card{position:relative;background:var(--bg2);border:1px solid rgba(200,164,92,.45);border-radius:4px;padding:0 clamp(20px,3vw,34px) 30px;overflow:hidden}
@@ -187,18 +196,20 @@ legend{font:700 1.5rem var(--serif);margin-bottom:12px;padding:0;color:var(--bra
 .chips{display:flex;flex-wrap:wrap;gap:10px}
 .chip{position:relative}
 .chip input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
-.chip span{display:flex;gap:10px;align-items:baseline;padding:11px 16px;border:1px solid rgba(239,230,216,.28);border-radius:2px;background:var(--bg);transition:background .2s,border-color .2s,color .2s}
+.chip span{display:flex;gap:10px;align-items:baseline;padding:11px 16px;border:1px solid rgba(239,230,216,.28);border-radius:2px;background:var(--bg);transition:background .25s,border-color .25s,color .25s,transform .25s,box-shadow .25s}
 .chip span i{font-style:normal;color:var(--brass)}
-.chip:hover span{border-color:var(--brass)}
-.chip input:checked+span{background:var(--brass);color:var(--bg);border-color:var(--brass)}
+.chip:hover span{border-color:var(--brass);transform:translateY(-1px);box-shadow:0 6px 16px rgba(0,0,0,.3)}
+.chip input:checked+span{background:linear-gradient(135deg,#d8b45a,#a8811d);color:#161209;border-color:transparent;box-shadow:0 6px 18px rgba(200,164,92,.4)}
 .chip input:checked+span i{color:var(--bg)}
 .chip input:focus-visible+span{outline:2px solid var(--bone);outline-offset:2px}
 .chip input:disabled+span{opacity:.3;text-decoration:line-through}.chip input:disabled{cursor:not-allowed}
 .hint{color:var(--mut);font-size:.92rem}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
 label{font-size:.9rem;color:var(--mut);display:block;margin-bottom:6px}
-input,select{font:inherit;color:var(--bone);background:var(--bg);border:1px solid rgba(239,230,216,.28);border-radius:2px;padding:12px;width:100%}
-input:focus,select:focus{border-color:var(--brass);outline:0}
+input,select{font:inherit;color:var(--bone);background:var(--bg);border:1px solid rgba(239,230,216,.28);border-radius:2px;padding:12px;width:100%;transition:border-color .25s,box-shadow .25s,background .25s}
+input:focus,select:focus{border-color:var(--brass);outline:0;box-shadow:0 0 0 3px rgba(200,164,92,.16),0 0 20px rgba(200,164,92,.1);background:#191210}
+.finf{display:flex;flex-wrap:wrap;gap:8px 18px;margin:18px 2px 0;font-size:.8rem;color:var(--mut)}
+.finf b{color:var(--brass);font-weight:400;margin-right:4px}
 .ok{display:none;border:1px solid var(--brass);border-radius:4px;padding:28px}.ok h3{font-size:2.4rem;margin-bottom:10px}.ok .btn{margin:6px 8px 0 0}
 .ticket{position:sticky;top:14vh;background:var(--bone);color:#241a12;padding:26px;border-radius:4px;transform:rotate(1.2deg);box-shadow:0 18px 40px rgba(0,0,0,.45)}
 .ticket h3{font:400 1.7rem Bungee,var(--serif);color:#241a12}
@@ -212,6 +223,7 @@ input:focus,select:focus{border-color:var(--brass);outline:0}
 .tot b{font:400 2rem Bungee,var(--serif);color:var(--brick)}
 .code{height:34px;margin-top:18px;background:repeating-linear-gradient(90deg,#241a12 0 2px,transparent 2px 5px,#241a12 5px 6px,transparent 6px 10px,#241a12 10px 13px,transparent 13px 16px)}
 .ticket .tx{margin:12px 0 0;font-size:.82rem;color:#6a5846;text-align:center}
+.selo{position:absolute;top:16px;right:16px;width:72px;height:72px;border:2px dotted rgba(179,67,38,.5);border-radius:50%;display:flex;align-items:center;justify-content:center;text-align:center;font:700 .56rem var(--sans);letter-spacing:.14em;text-transform:uppercase;color:rgba(179,67,38,.6);transform:rotate(12deg);line-height:1.5}
 @media(max-width:900px){.book{grid-template-columns:1fr}.ticket{position:relative;top:0;transform:none}}
 @media(max-width:560px){.two{grid-template-columns:1fr}}
 footer{padding:80px 0 120px;border-top:1px solid rgba(239,230,216,.12);color:var(--mut);font-size:.95rem}
@@ -341,13 +353,13 @@ footer img{width:140px;margin-top:16px;border-radius:2px}
 
 <section class="sec" id="dep"><div class="wrap">
 <h2 class="rv">O que dizem os clientes</h2>
-<div class="q">
-<blockquote class="rv"><div class="st">★★★★★</div><p>“Atendimento impecável do começo ao fim. O corte saiu exatamente como pedi, e a cerveja gelada no fim é o toque de mestre.”</p><cite>Carlos M., Unidade Morumbi</cite></blockquote>
-<blockquote class="rv"><div class="st">★★★★★</div><p>“Melhor degradê de São Paulo, sem exagero. Ambiente top e um capricho no acabamento que não se vê em todo lugar.”</p><cite>Rafael S., Center 3 Paulista</cite></blockquote>
-<blockquote class="rv"><div class="st">★★★★★</div><p>“Levei meu filho no Espaço Kids e ele não queria mais sair. Atendimento paciente até pro cliente mirim.”</p><cite>Anderson P., Unidade Morumbi</cite></blockquote>
-<blockquote class="rv"><div class="st">★★★★★</div><p>“Saí renovado. Navalha afiada, toalha quente e aquele clima de barbearia raiz, só que com elegância.”</p><cite>Tiago R., Unidade Frei Caneca</cite></blockquote>
+<div class="led rv" role="log" aria-live="polite">
+<div class="led-stars" aria-hidden="true">★★★★★</div>
+<blockquote class="led-tx" id="ledTx"> </blockquote>
+<cite id="ledAu"> </cite>
+<div class="led-dots" id="ledDots" role="group" aria-label="Escolher depoimento"></div>
 </div>
-<p class="rv" style="margin-top:30px;color:var(--mut);font-size:.9rem">Avaliações no <a href="https://www.google.com/search?q=Ganza+Barbearia+avalia%C3%A7%C3%B5es" target="_blank" rel="noopener" style="border-bottom:1px solid rgba(200,164,92,.4)">Google</a>.</p></div></section>
+        <p class="rv" style="margin-top:30px;color:var(--mut);font-size:.9rem">Avaliações no <a href="https://www.google.com/search?q=Ganza+Barbearia+avalia%C3%A7%C3%B5es" target="_blank" rel="noopener" style="border-bottom:1px solid rgba(200,164,92,.4)">Google</a>.</p></div></section>
 
 <section class="sec" id="agendar"><div class="wrap">
 <h2>Marque um horário</h2>
@@ -358,11 +370,13 @@ footer img{width:140px;margin-top:16px;border-radius:2px}
 <fieldset><legend>Onde e quando?</legend><div class="two"><div><label for="un">Unidade</label><select id="un"><option>Sem preferência</option><option>Unidade Morumbi</option><option>Unidade Frei Caneca</option><option>Unidade Shopping Ibirapuera</option><option>Unidade Center 3 — Paulista</option><option>Unidade Pátio — Paulista</option></select></div><div><label for="dt">Data</label><input id="dt" type="date"></div></div></fieldset>
 <fieldset><legend>Que horas?</legend><div class="chips" id="slots"></div></fieldset>
 <fieldset><legend>Quem senta na cadeira?</legend><div class="two"><div><label for="nm">Seu nome</label><input id="nm" autocomplete="name"></div><div><label for="ob">Observações (opcional)</label><input id="ob"></div></div></fieldset>
-<button class="btn" type="submit">Confirmar pelo WhatsApp</button> <span id="er" role="alert" style="color:#e58a6a;margin-left:12px"></span>
+<button class="btn" type="submit" style="width:100%;padding:17px 30px;font-size:1.02rem">Confirmar pelo WhatsApp</button>
+<span id="er" role="alert" style="display:block;margin-top:10px;color:#e58a6a"></span>
+<div class="finf"><span><b>✓</b> Sem taxa de reserva</span><span><b>✓</b> Cerveja gelada por conta da casa</span><span><b>✓</b> Confirmação humana no WhatsApp</span><span><b>✓</b> 5 unidades em SP</span></div>
 </form>
 <div class="ok" id="ok" role="status"><h3>Cadeira reservada!</h3><p>Se o WhatsApp não abriu, toque no botão para enviar a ficha. Chegue com 5 minutos de folga: a cerveja gelada é por nossa conta.</p><a class="btn" id="wl" target="_blank" rel="noopener" href="#">Abrir WhatsApp</a><button class="btn o" id="again" type="button">Fazer outra ficha</button></div>
 </div>
-<aside class="ticket" aria-live="polite"><h3>Ganza Co.</h3><p class="sb">Ficha de atendimento</p><div class="perf"></div>
+<aside class="ticket" aria-live="polite"><div class="selo" aria-hidden="true">Ganza<br>Barbearia<br>SP</div><h3>Ganza Co.</h3><p class="sb">Ficha de atendimento</p><div class="perf"></div>
 <dl><dt>Cliente</dt><dd id="tn">—</dd><dt>Serviço</dt><dd id="ts">—</dd><dt>Unidade</dt><dd id="tu">Sem preferência</dd><dt>Quando</dt><dd id="tw">—</dd></dl>
 <div class="tot"><span>Total na unidade</span><b id="tt">—</b></div><div class="code"></div><p class="tx">Sem taxa de reserva. Cerveja gelada por conta da casa.</p></aside>
 </div></div></section>
@@ -434,6 +448,23 @@ function runCount(el){var n=+el.dataset.n,s=performance.now();
 (function step(now){var k=Math.min(1,(now-s)/1400);el.textContent=Math.round(n*(1-Math.pow(1-k,3)));if(k<1)requestAnimationFrame(step)})(s)}
 function revealNum(el){if(el.dataset.sp)return;el.dataset.sp=1;sprayNum(el);runCount(el)}
 setTimeout(function(){nums.forEach(function(el){if(!el.dataset.sp&&el.getBoundingClientRect().top<innerHeight)revealNum(el)})},3500);
+/* letreiro eletrônico: depoimentos digitados ao vivo */
+var ledBox=$(".led");
+if(ledBox){var QUOTES=[
+{t:"\u201cAtendimento impec\u00e1vel do come\u00e7o ao fim. O corte saiu exatamente como pedi, e a cerveja gelada no fim \u00e9 o toque de mestre.\u201d",a:"Carlos M., Unidade Morumbi"},
+{t:"\u201cMelhor degrad\u00ea de S\u00e3o Paulo, sem exagero. Ambiente top e um capricho no acabamento que n\u00e3o se v\u00ea em todo lugar.\u201d",a:"Rafael S., Center 3 Paulista"},
+{t:"\u201cLevei meu filho no Espa\u00e7o Kids e ele n\u00e3o queria mais sair. Atendimento paciente at\u00e9 pro cliente mirim.\u201d",a:"Anderson P., Unidade Morumbi"},
+{t:"\u201cSa\u00ed renovado. Navalha afiada, toalha quente e aquele clima de barbearia raiz, s\u00f3 que com eleg\u00e2ncia.\u201d",a:"Tiago R., Unidade Frei Caneca"}];
+var ledTx=$("#ledTx"),ledAu=$("#ledAu"),ledDots=$("#ledDots"),qi=0,ledT1=null,ledVis=false;
+QUOTES.forEach(function(_,i){var d=document.createElement("button");d.type="button";d.className="dot";d.setAttribute("aria-label","Depoimento "+(i+1));d.addEventListener("click",function(){ledGo(i)});ledDots.appendChild(d)});
+function ledGo(i){qi=(i+QUOTES.length)%QUOTES.length;$$(".dot",ledDots).forEach(function(d,j){d.classList.toggle("on",j===qi)});clearTimeout(ledT1);var q=QUOTES[qi];
+if(RM){ledTx.textContent=q.t;ledAu.textContent="\u2014 "+q.a;return}
+ledTx.textContent="";ledAu.textContent="\u2014 "+q.a;
+var c=document.createElement("span");c.className="crs";c.textContent="\u2588";ledTx.appendChild(c);
+var k=0,iv=setInterval(function(){if(!ledVis)return;if(k<q.t.length){c.insertAdjacentText("beforebegin",q.t.charAt(k));k++}else{clearInterval(iv);ledT1=setTimeout(function(){ledGo(qi+1)},3000)}},26)}
+new IntersectionObserver(function(es,ob){if(es[0].isIntersecting){ob.disconnect();ledGo(0)}},{threshold:.25}).observe(ledBox);
+new IntersectionObserver(function(es){ledVis=es[0].isIntersecting},{threshold:.05}).observe(ledBox)}
+
 /* booking */
 var fm=$("#fm"),ok=$("#ok"),dt=$("#dt"),un=$("#un"),sl=$("#slots"),nm=$("#nm");
 var pad=function(n){return String(n).padStart(2,"0")},today=new Date(),iso=today.getFullYear()+"-"+pad(today.getMonth()+1)+"-"+pad(today.getDate());
