@@ -103,26 +103,50 @@
   }
   @keyframes shimmer { from { background-position:200% 0; } to { background-position:-120% 0; } }
   .corte .cl { display:inline-block; }
-  .corte .clw { display:inline-block; opacity:0;
-    transition:transform .7s cubic-bezier(.2,.7,.3,1), opacity .35s ease;
+  .corte .clw { display:inline-block; opacity:0; --dy:13px; --rot:0deg;
+    transition:transform .8s cubic-bezier(.3,1.35,.4,1), opacity .3s ease;
     animation:flashLetra .95s ease forwards; will-change:transform,filter; }
   .cut-stage { position:relative; margin:8px 0 4px; }
   .cor-top { clip-path:inset(0 0 51% 0); transform:translateY(-16px); }
   .cor-bot { clip-path:inset(51% 0 0 0); transform:translateY(16px); }
-  .cor-top, .cor-bot { transition:transform .95s cubic-bezier(.55,.08,.25,1); }
+  .cor-top, .cor-bot { transition:transform 1s cubic-bezier(.3,1.25,.35,1); }
   .cut-stage.junto .cor-top, .cut-stage.junto .cor-bot { transform:none; }
-  .cut-stage.corta .cor-top .clw { transform:translateY(-13px); opacity:1; }
-  .cut-stage.corta .cor-bot .clw { transform:translateY(13px); opacity:1; }
+  .cut-stage.junto { animation:pulsoJunto 1s ease; }
+  .cut-stage.corta .cor-top .clw { transform:translateY(calc(-1 * var(--dy))) rotate(calc(-1 * var(--rot))); opacity:1; }
+  .cut-stage.corta .cor-bot .clw { transform:translateY(var(--dy)) rotate(var(--rot)); opacity:1; }
   .cut-stage.junto .clw { transform:none !important; opacity:1; transition-delay:0s !important; }
   .c-faixa { position:relative; height:0; z-index:3; }
-  .c-flash { position:absolute; left:0; top:0; height:2px; width:100%; transform-origin:left; transform:scaleX(0);
-    background:linear-gradient(90deg, transparent, #fff6d8 45%, #e7c766 55%, transparent);
-    box-shadow:0 0 18px rgba(231,199,102,.9), 0 0 40px rgba(231,199,102,.5); opacity:0; }
+  .c-flash { position:absolute; left:0; top:-1px; height:3px; width:100%; transform-origin:left; transform:scaleX(0);
+    background:linear-gradient(90deg, transparent, #fff6d8 45%, #ffffff 50%, #e7c766 55%, transparent);
+    box-shadow:0 0 20px rgba(231,199,102,.95), 0 0 46px rgba(231,199,102,.55); opacity:0; }
   .cut-stage.corta .c-flash { animation:cortaFlash 2.7s cubic-bezier(.6,.05,.4,1) .95s forwards; }
   @keyframes cortaFlash { 0% {opacity:0; transform:scaleX(0);} 8% {opacity:1;} 86% {opacity:1; transform:scaleX(1);} 100% {opacity:0; transform:scaleX(1);} }
+  .spark { position:absolute; top:-2px; width:5px; height:5px; border-radius:50%; background:#fff6d8;
+    box-shadow:0 0 10px rgba(231,199,102,.95), 0 0 22px rgba(231,199,102,.6);
+    opacity:0; transform:scale(0); }
+  .cut-stage.corta .spark { animation:surg .55s ease forwards; }
+  @keyframes surg {
+    0%   { opacity:0; transform:translateY(0) scale(0); }
+    35%  { opacity:1; transform:translateY(-9px) scale(1.7); }
+    72%  { opacity:.8; transform:translateY(-21px) scale(.8); }
+    100% { opacity:0; transform:translateY(-32px) scale(0); }
+  }
   .razor-voa { position:absolute; left:0; right:0; top:-55px; height:110px; display:flex; align-items:center; justify-content:center;
-    opacity:0; animation:voa 2.7s cubic-bezier(.6,.05,.35,1) .95s forwards; pointer-events:none; }
-  @keyframes voa { 0% { opacity:0; transform:translateX(-70vw); } 10% { opacity:1; } 88% { opacity:1; transform:translateX(70vw); } 100% { opacity:0; transform:translateX(84vw); } }
+    opacity:0; animation:voa 2.7s cubic-bezier(.6,.05,.35,1) .95s forwards; pointer-events:none;
+    filter:drop-shadow(0 0 22px rgba(231,199,102,.4)); }
+  .razor-voa .razor { transform:scale(1.14); }
+  @keyframes voa {
+    0%   { opacity:0; transform:translateX(-72vw) rotate(-9deg) translateY(6px); }
+    12%  { opacity:1; }
+    48%  { transform:translateX(0) rotate(3deg) translateY(-3px); }
+    86%  { opacity:1; transform:translateX(68vw) rotate(-4deg) translateY(5px); }
+    100% { opacity:0; transform:translateX(84vw) rotate(0deg); }
+  }
+  @keyframes pulsoJunto {
+    0%   { filter:drop-shadow(0 0 0 rgba(231,199,102,0)); }
+    38%  { filter:drop-shadow(0 0 36px rgba(231,199,102,.8)); }
+    100% { filter:drop-shadow(0 0 0 rgba(231,199,102,0)); }
+  }
   .intro-hint { position:absolute; bottom:36px; left:0; right:0; text-align:center;
     letter-spacing:.34em; font-size:10px; text-transform:uppercase; color:#8a7c55;
     opacity:0; animation:fadeUp .9s ease 5.1s forwards; }
@@ -349,7 +373,7 @@
   :focus-visible { outline:2px solid #e7c766; outline-offset:3px; }
   @media (prefers-reduced-motion: reduce) {
     .faixa-roll .trilho, .bg-loja, .cta::after, .corte, .blade, .blade::before, .pivot,
-    .razor, .corte .clw, .poeira i, .intro-hint, #intro::after, .c-flash, .razor-voa { animation:none !important; }
+    .razor, .corte .clw, .poeira i, .intro-hint, #intro::after, .c-flash, .razor-voa, .spark, .cut-stage { animation:none !important; }
     .corte .clw, .cor-top, .cor-bot { transition:none !important; transform:none !important; opacity:1 !important; }
     .c-flash, .razor-voa { display:none !important; }
     .reveal { opacity:1 !important; transform:none !important; transition:none !important; }
@@ -824,7 +848,9 @@
       var cw = document.createElement('span');
       cw.className = 'clw';
       cw.textContent = t[i];
-      var atraso = 1.05 + i * 0.45;
+      var atraso = 1.2 + i * 0.52;
+      cw.style.setProperty('--dy', (10 + (i % 3) * 3) + 'px');
+      cw.style.setProperty('--rot', (i % 2 === 0 ? -1.5 : 2.1) + 'deg');
       cw.style.transitionDelay = atraso + 's';
       cw.style.animationDelay = atraso + 's';
       cl.appendChild(cw);
@@ -842,8 +868,17 @@
     '</div>' +
     '<div class="intro-hint">toque para pular<i></i></div>');
 
+  var faixa = document.querySelector('.c-faixa');
+  if (faixa) {
+    faixa.insertAdjacentHTML('beforeend',
+      '<span class="spark" style="left:14%; animation-delay:1.2s"></span>' +
+      '<span class="spark" style="left:31%; animation-delay:1.72s"></span>' +
+      '<span class="spark" style="left:50%; animation-delay:2.24s"></span>' +
+      '<span class="spark" style="left:69%; animation-delay:2.76s"></span>' +
+      '<span class="spark" style="left:86%; animation-delay:3.28s"></span>');
+  }
   if (!reduced) { stage.classList.add('corta'); }
-  setTimeout(function () { stage.classList.add('junto'); }, reduced ? 100 : 3600);
+  setTimeout(function () { stage.classList.add('junto'); }, reduced ? 100 : 3750);
 
   function fechaIntro() {
     introEl.classList.add('saida');
