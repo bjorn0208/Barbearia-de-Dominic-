@@ -43,56 +43,6 @@
     letter-spacing:.55em; font-size:12px; color:#9c8a5a; text-transform:uppercase;
     opacity:0; animation:fadeUp .8s ease .2s forwards;
   }
-  .razor { position:relative; width:min(460px, 82vw); height:110px; margin:0 auto; }
-  @keyframes sobe { from { opacity:0; transform:translateY(50px); } to { opacity:1; transform:none; } }
-  .blade {
-    position:absolute; left:0; top:0; width:50%; height:20px; transform-origin:right center;
-    transform:rotate(180deg);
-    background:linear-gradient(180deg, #f2f4f5 0%, #c3c9cd 45%, #8f979d 80%, #d9dee2 100%);
-    clip-path:polygon(0 42%, 4% 0, 100% 0, 100% 100%, 0 100%, 0 58%);
-    border-radius:0 6px 6px 0;
-    box-shadow:0 10px 24px rgba(0,0,0,.55);
-    animation:abrirNavalha 2.1s cubic-bezier(.55,.06,.28,.99) .5s forwards;
-  }
-  .blade::after {
-    content:''; position:absolute; left:0; right:0; bottom:3px; height:2px;
-    background:linear-gradient(90deg, rgba(255,255,255,.9), rgba(255,255,255,.15));
-  }
-  .blade::before {
-    content:''; position:absolute; inset:0;
-    background:linear-gradient(105deg, transparent 30%, rgba(255,255,255,.9) 48%, transparent 62%);
-    transform:translateX(-130%);
-    animation:glint .9s ease 2.65s forwards;
-  }
-  @keyframes glint { to { transform:translateX(200%); } }
-
-  .pivot {
-    position:absolute; left:50%; top:50%; width:14px; height:14px; margin:-7px 0 0 -7px;
-    border-radius:50%; background:radial-gradient(circle at 35% 30%, #f4dc8a, #8a6d1d);
-    box-shadow:0 0 12px rgba(231,199,102,.5); z-index:3; animation:pivotPulse 1.4s ease 2.85s forwards;
-  }
-  .handle {
-    position:absolute; right:0; top:3px; width:50%; height:26px; border-radius:4px 14px 14px 4px;
-    background:linear-gradient(180deg, #2c261e, #4a3b25 45%, #191510);
-    box-shadow:0 10px 24px rgba(0,0,0,.55), inset 0 1px 0 rgba(255,255,255,.12);
-  }
-  .handle::before, .handle::after {
-    content:''; position:absolute; top:50%; width:6px; height:6px; margin-top:-3px;
-    border-radius:50%; background:radial-gradient(circle at 35% 30%, #f4dc8a, #8a6d1d);
-  }
-  .handle::before { left:16px; } .handle::after { right:16px; }
-  @keyframes abrirNavalha {
-    0%   { transform:rotate(180deg); }
-    55%  { transform:rotate(26deg); }
-    76%  { transform:rotate(-11deg); }
-    89%  { transform:rotate(4deg); }
-    100% { transform:rotate(0deg); }
-  }
-  @keyframes pivotPulse {
-    0%   { box-shadow:0 0 12px rgba(231,199,102,.5); }
-    45%  { box-shadow:0 0 34px 9px rgba(231,199,102,.55); }
-    100% { box-shadow:0 0 18px rgba(231,199,102,.65); }
-  }
   .iv-rev { position:absolute; inset:0; display:grid; place-items:center;
     background:radial-gradient(ellipse at 50% 50%, #4d3016 0, #1e1309 42%, #0a0705 86%); }
   .iv-beam { position:absolute; left:-10%; right:-10%; top:50%; height:34vmin; margin-top:-17vmin;
