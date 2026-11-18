@@ -43,9 +43,7 @@
     letter-spacing:.55em; font-size:12px; color:#9c8a5a; text-transform:uppercase;
     opacity:0; animation:fadeUp .8s ease .2s forwards;
   }
-  .razor-wrap { perspective:800px; }
-  .razor { position:relative; width:min(460px, 82vw); height:110px; margin:34px 0 18px;
-    opacity:0; animation:sobe .95s cubic-bezier(.2,.7,.3,1) .12s forwards; }
+  .razor { position:relative; width:min(460px, 82vw); height:110px; margin:0 auto; }
   @keyframes sobe { from { opacity:0; transform:translateY(50px); } to { opacity:1; transform:none; } }
   .blade {
     position:absolute; left:0; top:0; width:50%; height:20px; transform-origin:right center;
@@ -54,7 +52,7 @@
     clip-path:polygon(0 42%, 4% 0, 100% 0, 100% 100%, 0 100%, 0 58%);
     border-radius:0 6px 6px 0;
     box-shadow:0 10px 24px rgba(0,0,0,.55);
-    animation:abrirNavalha 2.1s cubic-bezier(.55,.06,.28,.99) .8s forwards;
+    animation:abrirNavalha 2.1s cubic-bezier(.55,.06,.28,.99) 1.15s forwards;
   }
   .blade::after {
     content:''; position:absolute; left:0; right:0; bottom:3px; height:2px;
@@ -64,14 +62,14 @@
     content:''; position:absolute; inset:0;
     background:linear-gradient(105deg, transparent 30%, rgba(255,255,255,.9) 48%, transparent 62%);
     transform:translateX(-130%);
-    animation:glint .9s ease 2.4s forwards;
+    animation:glint .9s ease 3.1s forwards;
   }
   @keyframes glint { to { transform:translateX(200%); } }
 
   .pivot {
     position:absolute; left:50%; top:50%; width:14px; height:14px; margin:-7px 0 0 -7px;
     border-radius:50%; background:radial-gradient(circle at 35% 30%, #f4dc8a, #8a6d1d);
-    box-shadow:0 0 12px rgba(231,199,102,.5); z-index:3; animation:pivotPulse 1.4s ease 2.5s forwards;
+    box-shadow:0 0 12px rgba(231,199,102,.5); z-index:3; animation:pivotPulse 1.4s ease 3.35s forwards;
   }
   .handle {
     position:absolute; right:0; top:3px; width:50%; height:26px; border-radius:4px 14px 14px 4px;
@@ -95,7 +93,7 @@
     45%  { box-shadow:0 0 34px 9px rgba(231,199,102,.55); }
     100% { box-shadow:0 0 18px rgba(231,199,102,.65); }
   }
-  .intro-name {
+  .corte {
     font-size:clamp(44px, 9vw, 88px); letter-spacing:.18em; display:flex; justify-content:center;
     background:linear-gradient(90deg, #b8912f 0%, #e7c766 28%, #fdf3d0 50%, #e7c766 72%, #b8912f 100%);
     background-size:220% 100%; -webkit-background-clip:text; background-clip:text;
@@ -104,12 +102,27 @@
     animation:shimmer 3.4s linear 4.2s infinite;
   }
   @keyframes shimmer { from { background-position:200% 0; } to { background-position:-120% 0; } }
-  .intro-name .cl { display:inline-block; overflow:hidden; vertical-align:bottom;
-    padding-bottom:.09em; margin-bottom:-.09em; }
-  .intro-name .clw { display:inline-block; transform:translateY(125%);
-    transition:transform .85s cubic-bezier(.16,.84,.28,1);
+  .corte .cl { display:inline-block; }
+  .corte .clw { display:inline-block; opacity:0;
+    transition:transform .7s cubic-bezier(.2,.7,.3,1), opacity .35s ease;
     animation:flashLetra .95s ease forwards; will-change:transform,filter; }
-  .intro-name.revela .clw { transform:translateY(0); }
+  .cut-stage { position:relative; margin:8px 0 4px; }
+  .cor-top { clip-path:inset(0 0 51% 0); transform:translateY(-16px); }
+  .cor-bot { clip-path:inset(51% 0 0 0); transform:translateY(16px); }
+  .cor-top, .cor-bot { transition:transform .95s cubic-bezier(.55,.08,.25,1); }
+  .cut-stage.junto .cor-top, .cut-stage.junto .cor-bot { transform:none; }
+  .cut-stage.corta .cor-top .clw { transform:translateY(-13px); opacity:1; }
+  .cut-stage.corta .cor-bot .clw { transform:translateY(13px); opacity:1; }
+  .cut-stage.junto .clw { transform:none !important; opacity:1; transition-delay:0s !important; }
+  .c-faixa { position:relative; height:0; z-index:3; }
+  .c-flash { position:absolute; left:0; top:0; height:2px; width:100%; transform-origin:left; transform:scaleX(0);
+    background:linear-gradient(90deg, transparent, #fff6d8 45%, #e7c766 55%, transparent);
+    box-shadow:0 0 18px rgba(231,199,102,.9), 0 0 40px rgba(231,199,102,.5); opacity:0; }
+  .cut-stage.corta .c-flash { animation:cortaFlash 2.7s cubic-bezier(.6,.05,.4,1) .95s forwards; }
+  @keyframes cortaFlash { 0% {opacity:0; transform:scaleX(0);} 8% {opacity:1;} 86% {opacity:1; transform:scaleX(1);} 100% {opacity:0; transform:scaleX(1);} }
+  .razor-voa { position:absolute; left:0; right:0; top:-55px; height:110px; display:flex; align-items:center; justify-content:center;
+    opacity:0; animation:voa 2.7s cubic-bezier(.6,.05,.35,1) .95s forwards; pointer-events:none; }
+  @keyframes voa { 0% { opacity:0; transform:translateX(-70vw); } 10% { opacity:1; } 88% { opacity:1; transform:translateX(70vw); } 100% { opacity:0; transform:translateX(84vw); } }
   .intro-hint { position:absolute; bottom:36px; left:0; right:0; text-align:center;
     letter-spacing:.34em; font-size:10px; text-transform:uppercase; color:#8a7c55;
     opacity:0; animation:fadeUp .9s ease 5.1s forwards; }
@@ -335,9 +348,10 @@
   ::selection { background:#c9a227; color:#161209; }
   :focus-visible { outline:2px solid #e7c766; outline-offset:3px; }
   @media (prefers-reduced-motion: reduce) {
-    .faixa-roll .trilho, .bg-loja, .cta::after, .intro-name, .blade, .blade::before, .pivot,
-    .razor, .intro-name .clw, .poeira i, .intro-hint, #intro::after { animation:none !important; }
-    .intro-name .clw, .razor { transition:none !important; transform:none !important; opacity:1 !important; }
+    .faixa-roll .trilho, .bg-loja, .cta::after, .corte, .blade, .blade::before, .pivot,
+    .razor, .corte .clw, .poeira i, .intro-hint, #intro::after, .c-flash, .razor-voa { animation:none !important; }
+    .corte .clw, .cor-top, .cor-bot { transition:none !important; transform:none !important; opacity:1 !important; }
+    .c-flash, .razor-voa { display:none !important; }
     .reveal { opacity:1 !important; transform:none !important; transition:none !important; }
     header.hero-in .h-elm { animation:none !important; opacity:1 !important; }
   }
@@ -453,7 +467,8 @@
     section { padding:80px 6vw; }
     .logo-img { height:38px; width:45px; }
     .hero-logo { height:min(92px, 24vw); }
-    .intro-name { letter-spacing:.1em; }
+    .corte { letter-spacing:.1em; }
+    .razor { width:min(300px, 78vw); }
     .faixa-roll span { font-size:16px; }
     footer { padding:56px 7vw 32px; }
   }
@@ -470,14 +485,11 @@
 <!-- ================= INTRO (navalha que abre) ================= -->
 <div id="intro">
   <div class="intro-kicker">Barbearia</div>
-  <div class="razor-wrap">
-    <div class="razor">
-      <div class="blade"></div>
-      <div class="pivot"></div>
-      <div class="handle"></div>
-    </div>
+  <div class="cut-stage" id="cutStage" role="img" aria-label="Ganza">
+    <div class="corte cor-top" id="corTop" aria-hidden="true">GANZA</div>
+    <div class="c-faixa" aria-hidden="true"><span class="c-flash"></span><div class="razor-voa"><div class="razor"><div class="blade"></div><div class="pivot"></div><div class="handle"></div></div></div></div>
+    <div class="corte cor-bot" id="corBot" aria-hidden="true">GANZA</div>
   </div>
-  <div class="intro-name" id="introName">GANZA</div>
   <div class="intro-sub">Onde o ESTILO encontra a ELEGÂNCIA</div>
 </div>
 
@@ -799,23 +811,26 @@
   var $ = function (s) { return document.querySelector(s); };
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- introdução: revelação cinematográfica do nome ---------- */
+  /* ---------- introdução: navalha corta a marca e revela o nome ---------- */
   var introEl = $('#intro');
-  var nameEl = $('#introName');
-  var texto = (nameEl.textContent || 'GANZA').replace(/\s/g, '').trim();
-  nameEl.textContent = '';
-  for (var i = 0; i < texto.length; i++) {
-    var cl = document.createElement('span');
-    cl.className = 'cl';
-    var cw = document.createElement('span');
-    cw.className = 'clw';
-    cw.textContent = texto[i];
-    var atraso = 2.5 + i * 0.11;
-    cw.style.transitionDelay = atraso + 's';
-    cw.style.animationDelay = (atraso + 0.5) + 's';
-    cl.appendChild(cw);
-    nameEl.appendChild(cl);
-  }
+  var stage = $('#cutStage');
+  var metades = [$('#corTop'), $('#corBot')];
+  metades.forEach(function (parte) {
+    var t = (parte.textContent || 'GANZA').trim().split(' ').join('');
+    parte.textContent = '';
+    for (var i = 0; i < t.length; i++) {
+      var cl = document.createElement('span');
+      cl.className = 'cl';
+      var cw = document.createElement('span');
+      cw.className = 'clw';
+      cw.textContent = t[i];
+      var atraso = 1.05 + i * 0.45;
+      cw.style.transitionDelay = atraso + 's';
+      cw.style.animationDelay = atraso + 's';
+      cl.appendChild(cw);
+      parte.appendChild(cl);
+    }
+  });
   introEl.insertAdjacentHTML('beforeend',
     '<div class="poeira" aria-hidden="true">' +
     '<i style="left:9%; animation-delay:0s"></i>' +
@@ -825,13 +840,10 @@
     '<i style="left:78%; animation-delay:1.8s"></i>' +
     '<i style="left:91%; animation-delay:3s; width:3px; height:3px"></i>' +
     '</div>' +
-    '<div class="intro-hint">toque para entrar<i></i></div>');
+    '<div class="intro-hint">toque para pular<i></i></div>');
 
-  if (reduced) {
-    nameEl.classList.add('revela');
-  } else {
-    setTimeout(function () { nameEl.classList.add('revela'); }, 2400);
-  }
+  if (!reduced) { stage.classList.add('corta'); }
+  setTimeout(function () { stage.classList.add('junto'); }, reduced ? 100 : 3600);
 
   function fechaIntro() {
     introEl.classList.add('saida');
@@ -844,7 +856,7 @@
   introEl.addEventListener('click', function () {
     clearTimeout(saidaTimer);
     fechaIntro();
-  });;
+  });
 
   /* ---------- navbar sólida + barra de progresso + zap ---------- */
   var nav = document.querySelector('nav');
