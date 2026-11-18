@@ -44,7 +44,9 @@
     opacity:0; animation:fadeUp .8s ease .2s forwards;
   }
   .razor-wrap { perspective:800px; }
-  .razor { position:relative; width:min(460px, 82vw); height:110px; margin:34px 0 18px; }
+  .razor { position:relative; width:min(460px, 82vw); height:110px; margin:34px 0 18px;
+    opacity:0; animation:sobe .95s cubic-bezier(.2,.7,.3,1) .12s forwards; }
+  @keyframes sobe { from { opacity:0; transform:translateY(50px); } to { opacity:1; transform:none; } }
   .blade {
     position:absolute; left:0; top:0; width:50%; height:20px; transform-origin:right center;
     transform:rotate(180deg);
@@ -99,15 +101,43 @@
     background-size:220% 100%; -webkit-background-clip:text; background-clip:text;
     -webkit-text-fill-color:transparent; color:transparent;
     filter:drop-shadow(0 8px 28px rgba(201,162,39,.28));
-    animation:shimmer 3.4s linear 2.6s infinite;
+    animation:shimmer 3.4s linear 4.2s infinite;
   }
   @keyframes shimmer { from { background-position:200% 0; } to { background-position:-120% 0; } }
-  .intro-name span { opacity:0; animation:letra .55s ease forwards; }
+  .intro-name .cl { display:inline-block; overflow:hidden; vertical-align:bottom;
+    padding-bottom:.09em; margin-bottom:-.09em; }
+  .intro-name .clw { display:inline-block; transform:translateY(125%);
+    transition:transform .85s cubic-bezier(.16,.84,.28,1);
+    animation:flashLetra .95s ease forwards; will-change:transform,filter; }
+  .intro-name.revela .clw { transform:translateY(0); }
+  .intro-hint { position:absolute; bottom:36px; left:0; right:0; text-align:center;
+    letter-spacing:.34em; font-size:10px; text-transform:uppercase; color:#8a7c55;
+    opacity:0; animation:fadeUp .9s ease 5.1s forwards; }
+  .intro-hint i { display:block; width:1px; height:26px; margin:10px auto 0;
+    background:linear-gradient(#8a7c55, transparent); animation:desce 1.8s ease infinite; }
+  .poeira { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
+  .poeira i { position:absolute; bottom:-10px; width:4px; height:4px; border-radius:50%;
+    background:#e7c766; box-shadow:0 0 8px rgba(231,199,102,.85);
+    opacity:0; animation:po 7.5s linear infinite; }
+  #intro::after { content:''; position:absolute; left:50%; top:42%; width:150vmax; height:150vmax;
+    margin:-75vmax 0 0 -75vmax; pointer-events:none;
+    background:radial-gradient(circle, rgba(231,199,102,.13), rgba(231,199,102,.045) 30%, transparent 58%);
+    opacity:0; animation:acende 2.4s ease 2.1s forwards; }
   .intro-sub {
     letter-spacing:.45em; font-size:13px; color:#a9a08e; text-transform:uppercase; margin-top:8px;
-    opacity:0; animation:fadeUp .8s ease 2.3s forwards;
+    opacity:0; animation:fadeUp .9s ease 4.35s forwards;
   }
-  @keyframes letra { from { opacity:0; transform:translateY(26px) rotateX(60deg); } to { opacity:1; transform:none; } }
+  @keyframes flashLetra {
+    0%   { filter:brightness(2.8) drop-shadow(0 0 30px rgba(255,242,206,.95)); }
+    100% { filter:brightness(1) drop-shadow(0 0 0 rgba(255,242,206,0)); }
+  }
+  @keyframes acende { to { opacity:1; } }
+  @keyframes po {
+    0%   { opacity:0; transform:translateY(0) translateX(0); }
+    12%  { opacity:.7; }
+    60%  { opacity:.45; transform:translateY(-45vh) translateX(8px); }
+    100% { opacity:0; transform:translateY(-75vh) translateX(-6px); }
+  }
   @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
 
   /* ---------- navbar ---------- */
@@ -305,7 +335,9 @@
   ::selection { background:#c9a227; color:#161209; }
   :focus-visible { outline:2px solid #e7c766; outline-offset:3px; }
   @media (prefers-reduced-motion: reduce) {
-    .faixa-roll .trilho, .bg-loja, .cta::after, .intro-name, .blade, .blade::before, .pivot { animation:none !important; }
+    .faixa-roll .trilho, .bg-loja, .cta::after, .intro-name, .blade, .blade::before, .pivot,
+    .razor, .intro-name .clw, .poeira i, .intro-hint, #intro::after { animation:none !important; }
+    .intro-name .clw, .razor { transition:none !important; transform:none !important; opacity:1 !important; }
     .reveal { opacity:1 !important; transform:none !important; transition:none !important; }
     header.hero-in .h-elm { animation:none !important; opacity:1 !important; }
   }
@@ -767,34 +799,52 @@
   var $ = function (s) { return document.querySelector(s); };
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- intro: nome letra a letra + saída ---------- */
+  /* ---------- introdução: revelação cinematográfica do nome ---------- */
   var introEl = $('#intro');
   var nameEl = $('#introName');
-  var texto = (nameEl.textContent || 'GANÇA').trim();
+  var texto = (nameEl.textContent || 'GANZA').replace(/\s/g, '').trim();
   nameEl.textContent = '';
   for (var i = 0; i < texto.length; i++) {
-    var sp = document.createElement('span');
-    sp.textContent = texto[i];
-    sp.style.animationDelay = (1.1 + i * 0.12) + 's';
-    nameEl.appendChild(sp);
+    var cl = document.createElement('span');
+    cl.className = 'cl';
+    var cw = document.createElement('span');
+    cw.className = 'clw';
+    cw.textContent = texto[i];
+    var atraso = 2.5 + i * 0.11;
+    cw.style.transitionDelay = atraso + 's';
+    cw.style.animationDelay = (atraso + 0.5) + 's';
+    cl.appendChild(cw);
+    nameEl.appendChild(cl);
+  }
+  introEl.insertAdjacentHTML('beforeend',
+    '<div class="poeira" aria-hidden="true">' +
+    '<i style="left:9%; animation-delay:0s"></i>' +
+    '<i style="left:26%; animation-delay:1.2s; width:3px; height:3px"></i>' +
+    '<i style="left:43%; animation-delay:2.4s"></i>' +
+    '<i style="left:61%; animation-delay:.6s; width:5px; height:5px"></i>' +
+    '<i style="left:78%; animation-delay:1.8s"></i>' +
+    '<i style="left:91%; animation-delay:3s; width:3px; height:3px"></i>' +
+    '</div>' +
+    '<div class="intro-hint">toque para entrar<i></i></div>');
+
+  if (reduced) {
+    nameEl.classList.add('revela');
+  } else {
+    setTimeout(function () { nameEl.classList.add('revela'); }, 2400);
   }
 
-  document.body.style.overflow = 'hidden';           // trava o scroll durante a intro
-  var saidaTimer = setTimeout(function () {
+  function fechaIntro() {
     introEl.classList.add('saida');
     document.querySelector('header').classList.add('hero-in');
     document.body.style.overflow = '';
     setTimeout(function () { introEl.style.display = 'none'; }, reduced ? 0 : 1000);
-  }, reduced ? 300 : 3200);
-
-  // se o usuário tocar/clicar, pula a intro
+  }
+  document.body.style.overflow = 'hidden';
+  var saidaTimer = setTimeout(fechaIntro, reduced ? 300 : 7600);
   introEl.addEventListener('click', function () {
     clearTimeout(saidaTimer);
-    introEl.classList.add('saida');
-    document.querySelector('header').classList.add('hero-in');
-    document.body.style.overflow = '';
-    setTimeout(function () { introEl.style.display = 'none'; }, reduced ? 0 : 1000);
-  });
+    fechaIntro();
+  });;
 
   /* ---------- navbar sólida + barra de progresso + zap ---------- */
   var nav = document.querySelector('nav');
