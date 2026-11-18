@@ -222,6 +222,44 @@
   }
   header > :not(.bg-loja):not(.bg-vinheta) { position:relative; z-index:2; }
 
+
+  /* ---------- galeria ---------- */
+  .ggrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:18px; max-width:1180px; margin:0 auto; }
+  .gcard { margin:0; border:1px solid rgba(201,162,39,.18); border-radius:6px; overflow:hidden; background:#0f0d0a; transition:transform .4s, border-color .4s; }
+  .gcard:hover { transform:translateY(-6px); border-color:rgba(201,162,39,.55); }
+  .gfoto { aspect-ratio:4/3; background-size:cover; background-position:center; }
+  .gcard figcaption { padding:12px 14px; font-size:12px; letter-spacing:.18em; text-transform:uppercase; color:#9c937f; }
+  .gf1 { background:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9InciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyYjIzMTciLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxNzEzMTAiLz48L2xpbmVhckdyYWRpZW50PjxyYWRpYWxHcmFkaWVudCBpZD0iZyIgY3g9Ii41IiBjeT0iLjkiIHI9Ii44Ij48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiNlN2M3NjYiIHN0b3Atb3BhY2l0eT0iLjM1Ii8+PHN0b3Agb2Zmc2V0PSIxIiBzdG9wLWNvbG9yPSIjZTdjNzY2IiBzdG9wLW9wYWNpdHk9IjAiLz48L3JhZGlhbEdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0idXJsKCN3KSIvPjxyZWN0IHg9IjQwIiB5PSI0MCIgd2lkdGg9IjMyMCIgaGVpZ2h0PSIxNTAiIGZpbGw9IiMwZDBiMDgiIHN0cm9rZT0iIzZkNWYzZCIgc3Ryb2tlLXdpZHRoPSIzIiByeD0iNCIvPjxyZWN0IHg9IjYwIiB5PSI4MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxMTAiIGZpbGw9IiNlN2M3NjYiIG9wYWNpdHk9Ii4xNCIvPjxyZWN0IHg9IjIyMCIgeT0iODAiIHdpZHRoPSIxMjAiIGhlaWdodD0iMTEwIiBmaWxsPSIjZTdjNzY2IiBvcGFjaXR5PSIuMTQiLz48dGV4dCB4PSIyMDAiIHk9IjMyIiBmb250LWZhbWlseT0iR2VvcmdpYSIgZm9udC1zaXplPSIyNiIgbGV0dGVyLXNwYWNpbmc9IjgiIGZpbGw9IiNlN2M3NjYiIHRleHQtYW5jaG9yPSJtaWRkbGUiPkdBTlpBPC90ZXh0PjxyZWN0IHg9IjYwIiB5PSI4MCIgd2lkdGg9IjI4MCIgaGVpZ2h0PSIyIiBmaWxsPSIjYzlhMjI3IiBvcGFjaXR5PSIuNSIvPjxyZWN0IHg9IjE1MCIgeT0iMjMwIiB3aWR0aD0iMTIiIGhlaWdodD0iNjAiIGZpbGw9IiM1YWMwZTAiLz48cmVjdCB4PSIxNTAiIHk9IjIzOCIgd2lkdGg9IjEyIiBoZWlnaHQ9IjYiIGZpbGw9IiNiMDNhM2EiLz48cmVjdCB4PSIxNTAiIHk9IjI1MiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjYiIGZpbGw9IiNmMmYyZjIiLz48cmVjdCB4PSIxNTAiIHk9IjI2NiIgd2lkdGg9IjEyIiBoZWlnaHQ9IjYiIGZpbGw9IiNiMDNhM2EiLz48Y2lyY2xlIGN4PSIzMjAiIGN5PSIyNDAiIHI9IjIwIiBmaWxsPSJ1cmwoI2cpIi8+PHRleHQgeD0iMzIwIiB5PSIyNDciIGZvbnQtc2l6ZT0iMTgiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiM4ZDg0NzEiPuKcgjwvdGV4dD48cmVjdCB5PSIyODgiIHdpZHRoPSI0MDAiIGhlaWdodD0iMTIiIGZpbGw9IiMwYTA4MDYiLz48L3N2Zz4K") center/cover; }
+  .gf2 { background:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9InciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyNDFkMTMiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxNDEwMGMiLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0iYyIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iIzZiMTQxNCIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzNkMGIwYiIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSJ1cmwoI3cpIi8+PGNpcmNsZSBjeD0iMjAwIiBjeT0iMTMwIiByPSI5MCIgZmlsbD0iI2U3Yzc2NiIgb3BhY2l0eT0iLjA2Ii8+PHJlY3QgeD0iLTQwIiB5PSIyNDAiIHdpZHRoPSI0ODAiIGhlaWdodD0iNjAiIGZpbGw9IiMwZDBiMDgiLz48cmVjdCB4PSIxNTAiIHk9IjcwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjkwIiByeD0iMTQiIGZpbGw9InVybCgjYykiLz48cmVjdCB4PSIxNDAiIHk9IjE1MCIgd2lkdGg9IjEyMCIgaGVpZ2h0PSIxOCIgcng9IjYiIGZpbGw9IiM0YTNiMjUiLz48cmVjdCB4PSIxNTUiIHk9IjE2MCIgd2lkdGg9IjkwIiBoZWlnaHQ9IjQ2IiByeD0iOCIgZmlsbD0idXJsKCNjKSIvPjxyZWN0IHg9IjE3MCIgeT0iMjA1IiB3aWR0aD0iNjAiIGhlaWdodD0iMjYiIGZpbGw9IiM4YTZkMWQiLz48cGF0aCBkPSJNMTg1IDIzMCBoMzAgbDggMjUgaC00NiB6IiBmaWxsPSIjNWM0YTJjIi8+PGNpcmNsZSBjeD0iMTcwIiBjeT0iMjY1IiByPSI5IiBmaWxsPSIjMWExNzEyIiBzdHJva2U9IiNjOWEyMjciIHN0cm9rZS13aWR0aD0iMiIvPjxjaXJjbGUgY3g9IjIzMCIgY3k9IjI2NSIgcj0iOSIgZmlsbD0iIzFhMTcxMiIgc3Ryb2tlPSIjYzlhMjI3IiBzdHJva2Utd2lkdGg9IjIiLz48cmVjdCB4PSIxMjAiIHk9IjEyMCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjUyIiByeD0iMTAiIGZpbGw9IiM0YTNiMjUiLz48cmVjdCB4PSIyNTYiIHk9IjEyMCIgd2lkdGg9IjI0IiBoZWlnaHQ9IjUyIiByeD0iMTAiIGZpbGw9IiM0YTNiMjUiLz48Y2lyY2xlIGN4PSIyMDAiIGN5PSIxMTUiIHI9IjYiIGZpbGw9IiNlN2M3NjYiIG9wYWNpdHk9Ii44Ii8+PC9zdmc+Cg==") center/cover; }
+  .gf3 { background:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9InciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyMzMwNDIiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxNDFjMjgiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0idXJsKCN3KSIvPjxyZWN0IHg9IjE1MCIgeT0iMTIwIiB3aWR0aD0iMTAwIiBoZWlnaHQ9IjcwIiByeD0iMTIiIGZpbGw9IiMyZjZmOGYiLz48cmVjdCB4PSIxNjAiIHk9IjE1MCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjUyIiByeD0iOCIgZmlsbD0iIzI3NWQ3YSIvPjxyZWN0IHg9IjE2MCIgeT0iNjAiIHdpZHRoPSI4MCIgaGVpZ2h0PSI2MCIgcng9IjEyIiBmaWxsPSIjMmY2ZjhmIi8+PGNpcmNsZSBjeD0iMjAwIiBjeT0iNTgiIHI9IjciIGZpbGw9IiNmNGU2YWUiLz48cmVjdCB4PSIxODUiIHk9IjE4OCIgd2lkdGg9IjMwIiBoZWlnaHQ9IjIwIiBmaWxsPSIjOGE2ZDFkIi8+PHJlY3QgeD0iMTUwIiB5PSIyMDYiIHdpZHRoPSIxMDAiIGhlaWdodD0iOCIgZmlsbD0iIzRhM2IyNSIvPjxwYXRoIGQ9Ik0zMzAgOTAgYTIwIDIwIDAgMCAxIDIwIDIwIGwtMTQgNDAgaC0xMiBsLTE0LTQwIGEyMCAyMCAwIDAgMSAyMC0yMHoiIGZpbGw9IiNiMDNhM2EiLz48bGluZSB4MT0iMzMwIiB5MT0iODgiIHgyPSIzMzAiIHkyPSI2MCIgc3Ryb2tlPSIjOGQ4NDcxIiBzdHJva2Utd2lkdGg9IjIiLz48Y2lyY2xlIGN4PSI3MCIgY3k9IjcwIiByPSIzIiBmaWxsPSIjZTdjNzY2Ii8+PGNpcmNsZSBjeD0iMTAwIiBjeT0iNDAiIHI9IjIiIGZpbGw9IiNlN2M3NjYiLz48Y2lyY2xlIGN4PSI0NiIgY3k9IjEwMCIgcj0iMiIgZmlsbD0iI2U3Yzc2NiIvPjxyZWN0IHk9IjI4NCIgd2lkdGg9IjQwMCIgaGVpZ2h0PSIxNiIgZmlsbD0iIzBhMDgwNiIvPjwvc3ZnPgo=") center/cover; }
+  .gf4 { background:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9InciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyYjIzMTciLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxNjEyMGQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cmVjdCB3aWR0aD0iNDAwIiBoZWlnaHQ9IjMwMCIgZmlsbD0idXJsKCN3KSIvPjxyZWN0IHg9IjkwIiB5PSI1MCIgd2lkdGg9IjIyMCIgaGVpZ2h0PSIxNDAiIHJ4PSIxMDAiIGZpbGw9IiMwZDBiMDgiIHN0cm9rZT0iI2M5YTIyNyIgc3Ryb2tlLXdpZHRoPSI0Ii8+PGVsbGlwc2UgY3g9IjIwMCIgY3k9IjEyMCIgcng9IjgwIiByeT0iNTUiIGZpbGw9IiMxYzE4MTIiLz48ZWxsaXBzZSBjeD0iMjAwIiBjeT0iMTIwIiByeD0iNjAiIHJ5PSI0MiIgZmlsbD0iIzI0MWYxOCIvPjxjaXJjbGUgY3g9IjE0MCIgY3k9IjcwIiByPSIxMCIgZmlsbD0iI2Y0ZTZhZSIvPjxjaXJjbGUgY3g9IjE3NSIgY3k9IjU2IiByPSIxMCIgZmlsbD0iI2Y0ZTZhZSIvPjxjaXJjbGUgY3g9IjIyNSIgY3k9IjU2IiByPSIxMCIgZmlsbD0iI2Y0ZTZhZSIvPjxjaXJjbGUgY3g9IjI2MCIgY3k9IjcwIiByPSIxMCIgZmlsbD0iI2Y0ZTZhZSIvPjxjaXJjbGUgY3g9IjE0MCIgY3k9IjcwIiByPSIyMiIgZmlsbD0iI2U3Yzc2NiIgb3BhY2l0eT0iLjE4Ii8+PGNpcmNsZSBjeD0iMjYwIiBjeT0iNzAiIHI9IjIyIiBmaWxsPSIjZTdjNzY2IiBvcGFjaXR5PSIuMTgiLz48cmVjdCB4PSI2MCIgeT0iMjAwIiB3aWR0aD0iMjgwIiBoZWlnaHQ9IjE0IiBmaWxsPSIjNGEzYjI1Ii8+PHJlY3QgeD0iNzAiIHk9IjIxNCIgd2lkdGg9IjI2MCIgaGVpZ2h0PSI4IiBmaWxsPSIjMmMyNjFlIi8+PHJlY3QgeD0iMTAwIiB5PSIxNzYiIHdpZHRoPSIzNCIgaGVpZ2h0PSIyNCIgZmlsbD0iIzBkMGIwOCIgc3Ryb2tlPSIjYzlhMjI3Ii8+PHJlY3QgeD0iMjcwIiB5PSIxNzYiIHdpZHRoPSIzNCIgaGVpZ2h0PSIyNCIgZmlsbD0iIzBkMGIwOCIgc3Ryb2tlPSIjYzlhMjI3Ii8+PHJlY3QgeT0iMjgyIiB3aWR0aD0iNDAwIiBoZWlnaHQ9IjE4IiBmaWxsPSIjMGEwODA2Ii8+PC9zdmc+Cg==") center/cover; }
+  .gf5 { background:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9InciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMxYTE1MTAiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMwZjBjMDgiLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0ibiIgeDE9IjAiIHkxPSIwIiB4Mj0iMCIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2Y0ZGM4YSIvPjxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iI2M5YTIyNyIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjxyZWN0IHdpZHRoPSI0MDAiIGhlaWdodD0iMzAwIiBmaWxsPSJ1cmwoI3cpIi8+PHJlY3QgeD0iMzAiIHk9IjEwNSIgd2lkdGg9IjM0MCIgaGVpZ2h0PSI5MCIgcng9IjEwIiBmaWxsPSIjMGIwOTA2IiBzdHJva2U9IiMzYTMyMjYiIHN0cm9rZS13aWR0aD0iMyIvPjx0ZXh0IHg9IjIwMCIgeT0iMTY4IiBmb250LWZhbWlseT0iR2VvcmdpYSIgZm9udC1zaXplPSI0NCIgbGV0dGVyLXNwYWNpbmc9IjEyIiBmaWxsPSJ1cmwoI24pIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBzdHlsZT0iZmlsdGVyOmRyb3Atc2hhZG93KDAgMCAxNHB4IHJnYmEoMjMxLDE5OSwxMDIsLjgpKSI+R0FOWkE8L3RleHQ+PGNpcmNsZSBjeD0iNjAiIGN5PSIxNTAiIHI9IjI2IiBmaWxsPSIjZTdjNzY2IiBvcGFjaXR5PSIuMDciLz48Y2lyY2xlIGN4PSIzNDAiIGN5PSIxNTAiIHI9IjI2IiBmaWxsPSIjZTdjNzY2IiBvcGFjaXR5PSIuMDciLz48cmVjdCB5PSIyNDAiIHdpZHRoPSI0MDAiIGhlaWdodD0iNCIgZmlsbD0iI2M5YTIyNyIgb3BhY2l0eT0iLjQiLz48cmVjdCB5PSIyNTIiIHdpZHRoPSI0MDAiIGhlaWdodD0iNDgiIGZpbGw9IiMwYTA4MDYiLz48L3N2Zz4K") center/cover; }
+  .gf6 { background:url("data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA0MDAgMzAwIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9InciIHgxPSIwIiB5MT0iMCIgeDI9IjAiIHkyPSIxIj48c3RvcCBvZmZzZXQ9IjAiIHN0b3AtY29sb3I9IiMyYjIzMTciLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiMxNzEzMTAiLz48L2xpbmVhckdyYWRpZW50PjxsaW5lYXJHcmFkaWVudCBpZD0idiIgeDE9IjAiIHkxPSIwIiB4Mj0iMSIgeTI9IjEiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2U3Yzc2NiIgc3RvcC1vcGFjaXR5PSIuMTgiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNlN2M3NjYiIHN0b3Atb3BhY2l0eT0iLjA0Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3Qgd2lkdGg9IjQwMCIgaGVpZ2h0PSIzMDAiIGZpbGw9InVybCgjdykiLz48cmVjdCB4PSI1MCIgeT0iMzAiIHdpZHRoPSIzMDAiIGhlaWdodD0iMjIwIiBmaWxsPSJ1cmwoI3YpIiBzdHJva2U9IiNjOWEyMjciIHN0cm9rZS13aWR0aD0iMyIvPjxsaW5lIHgxPSIyMDAiIHkxPSIzMCIgeDI9IjIwMCIgeTI9IjI1MCIgc3Ryb2tlPSIjYzlhMjI3IiBvcGFjaXR5PSIuNiIgc3Ryb2tlLXdpZHRoPSIyIi8+PGxpbmUgeDE9IjUwIiB5MT0iMTQwIiB4Mj0iMzUwIiB5Mj0iMTQwIiBzdHJva2U9IiNjOWEyMjciIG9wYWNpdHk9Ii40Ii8+PHRleHQgeD0iMjAwIiB5PSI4MCIgZm9udC1mYW1pbHk9Ikdlb3JnaWEiIGZvbnQtc2l6ZT0iMTYiIGxldHRlci1zcGFjaW5nPSI1IiBmaWxsPSIjZTdjNzY2IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj5TUEFDRSBLSURTPC90ZXh0Pjx0ZXh0IHg9IjEyNSIgeT0iMjAwIiBmb250LXNpemU9IjI2IiBmaWxsPSIjZTdjNzY2IiBvcGFjaXR5PSIuODUiIHRleHQtYW5jaG9yPSJtaWRkbGUiPuKcgjwvdGV4dD48dGV4dCB4PSIyNzUiIHk9IjIwMCIgZm9udC1zaXplPSIyNiIgZmlsbD0iI2U3Yzc2NiIgb3BhY2l0eT0iLjg1IiB0ZXh0LWFuY2hvcj0ibWlkZGxlIj7wn5KIPC90ZXh0PjxyZWN0IHk9IjI1MCIgd2lkdGg9IjQwMCIgaGVpZ2h0PSI1MCIgZmlsbD0iIzBhMDgwNiIvPjwvc3ZnPgo=") center/cover; }
+
+  /* ---------- precos ---------- */
+  .pgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); gap:22px; max-width:1080px; margin:0 auto; }
+  .pcard { position:relative; border:1px solid rgba(201,162,39,.2); border-radius:8px; padding:36px 26px 30px; text-align:center;
+           background:linear-gradient(165deg,#17130e,#100d0a); transition:transform .4s, border-color .4s, box-shadow .4s; }
+  .pcard:hover { transform:translateY(-6px); border-color:#c9a227; }
+  .pcard.destaque { border-color:#c9a227; box-shadow:0 18px 50px rgba(201,162,39,.12); }
+  .pcard .selo { position:absolute; top:-12px; left:50%; transform:translateX(-50%); white-space:nowrap;
+                 background:linear-gradient(135deg,#d8b45a,#a8811d); color:#161209; font-size:10px; letter-spacing:.2em;
+                 padding:5px 14px; border-radius:20px; font-weight:bold; text-transform:uppercase; }
+  .pcard .nome { font-family:'Playfair Display', Didot, Georgia, serif; font-size:20px; color:#f4ead2; letter-spacing:.06em; }
+  .pcard .preco { font-family:'Playfair Display', Didot, Georgia, serif; font-size:42px; color:#e7c766; margin:12px 0 16px; }
+  .pcard ul { list-style:none; padding:0; font-size:13.5px; color:#9c937f; }
+  .pcard li { padding:6px 0; border-bottom:1px dashed rgba(201,162,39,.14); }
+  .nota-preco { text-align:center; color:#8d8471; font-size:12.5px; margin-top:26px; }
+
+  /* ---------- depoimentos ---------- */
+  .dgrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:22px; max-width:1080px; margin:0 auto; }
+  .dcard { border:1px solid rgba(201,162,39,.18); border-radius:8px; padding:30px 26px; background:rgba(255,255,255,.015); transition:border-color .4s, transform .4s; }
+  .dcard:hover { border-color:rgba(201,162,39,.5); transform:translateY(-6px); }
+  .dcard .ast { color:#e7c766; letter-spacing:4px; font-size:15px; }
+  .dcard p { color:#b5ac9a; font-size:14.5px; font-style:italic; margin:14px 0 16px; line-height:1.7; }
+  .dcard .quem { font-size:12px; letter-spacing:.16em; text-transform:uppercase; color:#8d8471; }
+  .dcard .quem b { color:#e7c766; }
+
   @media (max-width: 720px) {
     .links { position:fixed; inset:0; background:rgba(10,8,6,.97); flex-direction:column; align-items:center; justify-content:center;
              gap:34px; font-size:17px; opacity:0; visibility:hidden; transition:opacity .4s, visibility .4s; }
@@ -268,6 +306,8 @@
   <div class="links">
     <a href="#inicio">Início</a>
     <a href="#sobre">A Casa</a>
+    <a href="#galeria">O Espaço</a>
+    <a href="#precos">Preços</a>
     <a href="#agendar">Agendar</a>
   </div>
 </nav>
@@ -310,6 +350,82 @@
     <span>· Cabelo</span><span>· Barba</span><span>· Bigode</span><span>· Cerveja gelada</span><span>· Estilo</span><span>· Elegância</span>
   </div>
 </div>
+
+
+<!-- ================= GALERIA ================= -->
+<section id="galeria">
+  <span class="tag reveal">O espaço</span>
+  <h2 class="title reveal atraso-1">Conheça nossas unidades</h2>
+  <p class="sub reveal atraso-2">Ambiente climatizado, cerveja gelada e aquele papo — em todos os endereços da Ganza.</p>
+  <div class="ggrid">
+    <figure class="gcard reveal"><div class="gfoto gf1" role="img" aria-label="Unidade Morumbi — fachada"></div><figcaption>Unidade Morumbi — Fachada</figcaption></figure>
+    <figure class="gcard reveal atraso-1"><div class="gfoto gf2" role="img" aria-label="Unidade Morumbi — cadeira"></div><figcaption>Unidade Morumbi — Cadeira</figcaption></figure>
+    <figure class="gcard reveal atraso-2"><div class="gfoto gf4" role="img" aria-label="Interior — espelho e luzes"></div><figcaption>Interior — Espelho &amp; Luzes</figcaption></figure>
+    <figure class="gcard reveal"><div class="gfoto gf5" role="img" aria-label="Unidade Paulista — letreiro"></div><figcaption>Paulista — Letreiro</figcaption></figure>
+    <figure class="gcard reveal atraso-1"><div class="gfoto gf3" role="img" aria-label="Espaço Kids — Morumbi"></div><figcaption>Espaço Kids — Morumbi</figcaption></figure>
+    <figure class="gcard reveal atraso-2"><div class="gfoto gf6" role="img" aria-label="Shopping — vitrine"></div><figcaption>Shopping — Vitrine</figcaption></figure>
+  </div>
+</section>
+
+<!-- ================= PREÇOS ================= -->
+<section id="precos">
+  <span class="tag reveal">Tabela de valores</span>
+  <h2 class="title reveal atraso-1">Serviços &amp; Preços</h2>
+  <p class="sub reveal atraso-2">Sem taxa de reserva — o pagamento é direto na unidade.</p>
+  <div class="pgrid">
+    <div class="pcard reveal">
+      <div class="nome">Cabelo</div>
+      <div class="preco">R$ 65</div>
+      <ul><li>Corte personalizado</li><li>Máquina &amp; tesoura</li><li>Finalização</li></ul>
+    </div>
+    <div class="pcard reveal atraso-1">
+      <div class="nome">Barba</div>
+      <div class="preco">R$ 45</div>
+      <ul><li>Toalha quente</li><li>Navalha</li><li>Óleo &amp; balm</li></ul>
+    </div>
+    <div class="pcard destaque reveal atraso-2">
+      <div class="selo">Mais pedido</div>
+      <div class="nome">Cabelo + Barba</div>
+      <div class="preco">R$ 100</div>
+      <ul><li>Combo completo</li><li>Toalha quente</li><li>Cerveja gelada</li></ul>
+    </div>
+    <div class="pcard reveal atraso-3">
+      <div class="nome">Bigode ou Pezinho</div>
+      <div class="preco">R$ 25</div>
+      <ul><li>Acabamento fino</li><li>Rápido, sem fila</li></ul>
+    </div>
+  </div>
+  <p class="nota-preco reveal">Valores de referência — confirme os preços atuais com a unidade.</p>
+</section>
+
+<!-- ================= DEPOIMENTOS ================= -->
+<section id="depoimentos">
+  <span class="tag reveal">Depoimentos</span>
+  <h2 class="title reveal atraso-1">O que dizem os clientes</h2>
+  <p class="sub reveal atraso-2">Avaliações de quem passa pelas cadeiras da Ganza.</p>
+  <div class="dgrid">
+    <div class="dcard reveal">
+      <div class="ast">★★★★★</div>
+      <p>"Atendimento impecável do começo ao fim. O corte saiu exatamente como pedi — e a cerveja gelada no fim do dia é o toque de mestre."</p>
+      <div class="quem"><b>Carlos M.</b> · Unidade Morumbi</div>
+    </div>
+    <div class="dcard reveal atraso-1">
+      <div class="ast">★★★★★</div>
+      <p>"Melhor degradê de São Paulo, sem exagero. Ambiente top e um capricho no acabamento que não se vê em todo lugar."</p>
+      <div class="quem"><b>Rafael S.</b> · Center 3 Paulista</div>
+    </div>
+    <div class="dcard reveal atraso-2">
+      <div class="ast">★★★★★</div>
+      <p>"Levei meu filho no Espaço Kids e ele não queria mais sair. Atendimento paciente até pra cliente mirim."</p>
+      <div class="quem"><b>Anderson P.</b> · Unidade Morumbi</div>
+    </div>
+    <div class="dcard reveal atraso-3">
+      <div class="ast">★★★★★</div>
+      <p>"Saí renovado. Navalha afiada, toalha quente e aquele clima de barbearia raiz — só que com elegância."</p>
+      <div class="quem"><b>Tiago R.</b> · Unidade Frei Caneca</div>
+    </div>
+  </div>
+</section>
 
 <!-- ================= AGENDAMENTO ================= -->
 <section id="agendar">
