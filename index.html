@@ -93,104 +93,41 @@
     45%  { box-shadow:0 0 34px 9px rgba(231,199,102,.55); }
     100% { box-shadow:0 0 18px rgba(231,199,102,.65); }
   }
-  .forja { position:relative; width:100%; max-width:900px; margin:10px auto 2px; }
-  .navalha-pousa { width:min(340px, 62vw); margin:0 auto 4px; opacity:0;
-    transform:rotate(-18deg); animation:pousa 1.1s cubic-bezier(.2,.7,.3,1) .15s forwards;
-    filter:drop-shadow(0 14px 26px rgba(0,0,0,.6)); }
-  .navalha-pousa .razor { width:100%; margin:0; }
-  @keyframes pousa { from { opacity:0; transform:rotate(-32deg) translateY(-30px); } to { opacity:1; transform:rotate(-18deg) translateY(0); } }
-  .palco-nome { position:relative; text-align:center; }
-  .nf {
-    font-size:clamp(44px, 9vw, 88px); letter-spacing:.18em; line-height:1.05; display:flex; justify-content:center;
-    background:linear-gradient(90deg, #8f7326 0%, #e7c766 30%, #fdf3d0 50%, #e7c766 70%, #8f7326 100%);
-    background-size:220% 100%; -webkit-background-clip:text; background-clip:text;
-    -webkit-text-fill-color:transparent; color:transparent;
-    filter:drop-shadow(0 8px 28px rgba(201,162,39,.3));
-    transition:filter 1.6s ease 3.1s;
-    animation:shimmer 3.4s linear 3.3s infinite;
-  }
-  .forja.acende .nf { filter:drop-shadow(0 10px 38px rgba(231,199,102,.55)); }
-  .palco-nome .nf, .linha-base { position:relative; z-index:1; }
-  @keyframes shimmer { from { background-position:200% 0; } to { background-position:-120% 0; } }
-  .nf .lf { display:inline-block; }
-  .nf .li { display:inline-block; opacity:0; transform:scale(1.7) translateY(-10px);
-    filter:blur(14px) brightness(3.4);
-    animation:forja 1s cubic-bezier(.2,.8,.3,1) both; will-change:transform,filter; }
-  @keyframes forja { to { opacity:1; transform:scale(1) translateY(0); filter:blur(0) brightness(1); } }
-  .linha-base { position:relative; height:2px; margin:12px auto 0; width:min(72vw, 560px);
-    background:linear-gradient(90deg, transparent, rgba(231,199,102,.7), transparent);
-    transform:scaleX(0); box-shadow:0 0 14px rgba(231,199,102,.4); }
-  .forja.acende .linha-base { animation:abreLinha 1.2s cubic-bezier(.6,.05,.4,1) .95s forwards; }
-  @keyframes abreLinha { to { transform:scaleX(1); } }
-  .espelho {
-    transform:scaleY(-1) translateY(-4px); margin-top:4px; opacity:.2; pointer-events:none;
-    -webkit-mask-image:linear-gradient(180deg, rgba(0,0,0,.9), transparent 74%);
-    mask-image:linear-gradient(180deg, rgba(0,0,0,.9), transparent 74%);
-    filter:none;
-  }
-  .luz { position:absolute; left:50%; top:-60px; bottom:-70px; width:120px; margin-left:-60px;
-    background:linear-gradient(90deg, transparent, rgba(231,199,102,.16) 30%, rgba(255,246,216,.55) 50%, rgba(231,199,102,.16) 70%, transparent);
-    filter:blur(2px); opacity:0; pointer-events:none; z-index:4; mix-blend-mode:screen; }
-  .forja.acende .luz { animation:varre 2.4s cubic-bezier(.65,.02,.3,1) .95s forwards; }
-  @keyframes varre {
-    0%   { opacity:0; transform:translateX(-54vw) skewX(-14deg) scaleX(1.25); }
-    12%  { opacity:1; }
-    85%  { opacity:1; transform:translateX(50vw) skewX(14deg) scaleX(1.25); }
-    100% { opacity:0; transform:translateX(55vw) skewX(14deg) scaleX(1.5); }
-  }
-  .forja.acende { animation:pulsoGlow 1.2s ease 3.1s; }
-  @keyframes pulsoGlow {
-    0%   { filter:drop-shadow(0 0 0 rgba(231,199,102,0)); }
-    38%  { filter:drop-shadow(0 0 36px rgba(231,199,102,.75)); }
-    100% { filter:drop-shadow(0 0 0 rgba(231,199,102,0)); }
-  }
-  .aura { position:absolute; left:50%; top:36%; width:150%; height:170%; max-width:none;
-    transform:translate(-50%,-50%); pointer-events:none; z-index:0;
-    background:radial-gradient(ellipse, rgba(231,199,102,.26), rgba(231,199,102,.09) 42%, transparent 68%);
-    opacity:0; }
-  .forja.acende .aura { animation:acendeAura 1.8s ease 2.9s forwards, respiraAura 3.2s ease-in-out 4.7s infinite; }
-  @keyframes acendeAura { to { opacity:1; } }
-  @keyframes respiraAura {
-    0%, 100% { opacity:.72; transform:translate(-50%,-50%) scale(1); }
-    50%      { opacity:1;  transform:translate(-50%,-50%) scale(1.07); }
-  }
-  .brilho-amp { position:absolute; inset:-36px -14px; pointer-events:none; z-index:2; }
-  .brilho-amp i { position:absolute; border-radius:50%; background:#fff6d8;
-    box-shadow:0 0 8px rgba(231,199,102,.95), 0 0 20px rgba(231,199,102,.55);
-    opacity:0; transform:scale(0); animation:piscar 2.6s ease-in-out infinite; }
-  @keyframes piscar {
-    0%, 100% { opacity:0; transform:scale(0); }
-    50%      { opacity:1; transform:scale(1); }
-  }
-    .intro-hint { position:absolute; bottom:36px; left:0; right:0; text-align:center;
-    letter-spacing:.34em; font-size:10px; text-transform:uppercase; color:#8a7c55;
-    opacity:0; animation:fadeUp .9s ease 5.1s forwards; }
-  .intro-hint i { display:block; width:1px; height:26px; margin:10px auto 0;
-    background:linear-gradient(#8a7c55, transparent); animation:desce 1.8s ease infinite; }
-  .poeira { position:absolute; inset:0; pointer-events:none; overflow:hidden; }
-  .poeira i { position:absolute; bottom:-10px; width:4px; height:4px; border-radius:50%;
-    background:#e7c766; box-shadow:0 0 8px rgba(231,199,102,.85);
-    opacity:0; animation:po 7.5s linear infinite; }
-  #intro::after { content:''; position:absolute; left:50%; top:42%; width:150vmax; height:150vmax;
-    margin:-75vmax 0 0 -75vmax; pointer-events:none;
-    background:radial-gradient(circle, rgba(231,199,102,.13), rgba(231,199,102,.045) 30%, transparent 58%);
-    opacity:0; animation:acende 2.4s ease 2.1s forwards; }
-  .intro-sub {
-    letter-spacing:.45em; font-size:13px; color:#a9a08e; text-transform:uppercase; margin-top:8px;
-    opacity:0; animation:fadeUp .9s ease 4.35s forwards;
-  }
-  @keyframes flashLetra {
-    0%   { filter:brightness(2.8) drop-shadow(0 0 30px rgba(255,242,206,.95)); }
-    100% { filter:brightness(1) drop-shadow(0 0 0 rgba(255,242,206,0)); }
-  }
-  @keyframes acende { to { opacity:1; } }
-  @keyframes po {
-    0%   { opacity:0; transform:translateY(0) translateX(0); }
-    12%  { opacity:.7; }
-    60%  { opacity:.45; transform:translateY(-45vh) translateX(8px); }
-    100% { opacity:0; transform:translateY(-75vh) translateX(-6px); }
-  }
-  @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
+  .iv-rev { position:absolute; inset:0; display:grid; place-items:center;
+    background:radial-gradient(ellipse at 50% 50%, #4d3016 0, #1e1309 42%, #0a0705 86%); }
+  .iv-beam { position:absolute; left:-10%; right:-10%; top:50%; height:34vmin; margin-top:-17vmin;
+    background:radial-gradient(ellipse at 50% 50%, rgba(255,214,140,.7), transparent 68%); opacity:0; }
+  .iv-nm { position:relative; text-align:center; perspective:900px; }
+  .iv-l { display:flex; justify-content:center; gap:.03em;
+    font:700 clamp(4.2rem, 21vw, 11.5rem)/1.05 Georgia, 'Times New Roman', serif; }
+  .iv-l i { font-style:normal; display:inline-block; opacity:0;
+    background:linear-gradient(105deg, transparent 40%, rgba(255,255,255,.95) 50%, transparent 60%) 160% 0/300% 100% no-repeat,
+               linear-gradient(180deg, #fff6d8, #e0bd6c 50%, #8a6a2a);
+    -webkit-background-clip:text; background-clip:text; color:transparent; }
+  .iv-sub { display:flex; align-items:center; justify-content:center; gap:16px; margin-top:6px; color:#c8a45c;
+    font:500 clamp(.9rem, 3.2vw, 1.5rem) Georgia, 'Times New Roman', serif; opacity:0; }
+  .iv-sub span { padding-left:.5em; letter-spacing:.5em; }
+  .iv-sub b { height:1px; width:clamp(30px, 10vw, 90px); background:#c8a45c; transform:scaleX(0); }
+  .iv-h { position:absolute; inset:0; background:radial-gradient(ellipse at 50% 48%, #34241a 0, #150e08 52%, #060403 100%); }
+  .iv-ha { clip-path:polygon(0 0, 100% 0, 100% 46.3%, 0 54.3%); }
+  .iv-hb { clip-path:polygon(0 53.7%, 100% 45.7%, 100% 100%, 0 100%); }
+  .iv-cam { position:absolute; inset:0; }
+  .iv-stage { position:absolute; inset:0; display:grid; place-items:center; perspective:1400px; opacity:0; }
+  .iv-glow { position:absolute; inset:0; margin:auto; width:min(130vw, 900px); height:min(130vw, 900px); border-radius:50%;
+    pointer-events:none; background:radial-gradient(circle, rgba(255,200,110,.5) 0, rgba(180,85,45,.18) 35%, transparent 65%); opacity:0; }
+  .iv-razor { grid-area:1/1; position:relative; width:min(78vw, 720px); aspect-ratio:640/220; transform-style:preserve-3d; }
+  .iv-tilt { position:absolute; inset:0; transform-style:preserve-3d; }
+  .iv-tilt svg { position:absolute; inset:0; width:100%; height:100%; overflow:visible; filter:drop-shadow(0 18px 16px rgba(0,0,0,.65)); }
+  .iv-b { transform-origin:51.5625% 50%; transform:rotateZ(-180deg); }
+  .iv-cut { position:absolute; inset:0; width:100%; height:100%; pointer-events:none;
+    clip-path:inset(0 50% 0 50%); filter:drop-shadow(0 0 6px #ffcf7a) drop-shadow(0 0 16px #ffb347); }
+  .iv-fl { position:absolute; inset:0; pointer-events:none; opacity:0;
+    background:radial-gradient(circle at 50% 50%, rgba(255,244,210,.95), rgba(255,200,110,.35) 40%, transparent 70%); }
+  .iv-cv { position:absolute; inset:0; width:100%; height:100%; pointer-events:none; }
+  .iv-skp { position:absolute; right:max(18px, env(safe-area-inset-right, 0px)); bottom:calc(22px + env(safe-area-inset-bottom, 0px));
+    z-index:3; background:rgba(0,0,0,.3); border:1px solid rgba(239,230,216,.4); color:#efe8d8;
+    font:500 .85rem Arial, Helvetica, sans-serif; padding:8px 16px; border-radius:20px; cursor:pointer; }
+    @keyframes fadeUp { from { opacity:0; transform:translateY(18px); } to { opacity:1; transform:none; } }
 
   /* ---------- navbar ---------- */
   nav {
@@ -387,11 +324,8 @@
   ::selection { background:#c9a227; color:#161209; }
   :focus-visible { outline:2px solid #e7c766; outline-offset:3px; }
   @media (prefers-reduced-motion: reduce) {
-    .faixa-roll .trilho, .bg-loja, .cta::after, .forja, .blade, .blade::before, .pivot,
-    .razor, .nf .li, .poeira i, .intro-hint, #intro::after, .luz, .linha-base,
-    .navalha-pousa, .aura, .brilho-amp i { animation:none !important; }
-    .nf .li { transition:none !important; transform:none !important; opacity:1 !important; filter:none !important; }
-    .luz { display:none !important; }
+    .faixa-roll .trilho, .bg-loja, .cta::after { animation:none !important; }
+    #intro .iv-stage, #intro .iv-h, #intro .iv-cut, #intro .iv-cv, #intro .iv-fl { display:none !important; }
     .reveal { opacity:1 !important; transform:none !important; transition:none !important; }
     header.hero-in .h-elm { animation:none !important; opacity:1 !important; }
   }
@@ -507,9 +441,8 @@
     section { padding:80px 6vw; }
     .logo-img { height:38px; width:45px; }
     .hero-logo { height:min(92px, 24vw); }
-    .nf { letter-spacing:.1em; }
-    .navalha-pousa { width:min(260px, 58vw); }
-    .linha-base { width:min(84vw, 420px); }
+    .iv-l { font-size:clamp(3.4rem, 20vw, 9rem); }
+    .iv-razor { width:min(92vw, 620px); }
     .faixa-roll span { font-size:16px; }
     footer { padding:56px 7vw 32px; }
   }
@@ -524,19 +457,39 @@
 <div id="progress"></div>
 
 <!-- ================= INTRO (navalha que abre) ================= -->
-<div id="intro">
-  <div class="intro-kicker">Barbearia</div>
-  <div class="forja" id="forja" role="img" aria-label="Ganza">
-    <div class="navalha-pousa" aria-hidden="true"><div class="razor"><div class="blade"></div><div class="pivot"></div><div class="handle"></div></div></div>
-    <div class="palco-nome">
-      <div class="aura" aria-hidden="true"></div>
-      <div class="nf" id="nfTopo">GANZA</div>
-      <div class="linha-base"><span></span></div>
-      <div class="nf espelho" id="nfEspelho" aria-hidden="true">GANZA</div>
-    </div>
-    <div class="luz" aria-hidden="true"></div>
-  </div>
-  <div class="intro-sub">Onde o ESTILO encontra a ELEGÂNCIA</div>
+<div id="intro" role="presentation">
+  <div class="iv-rev"><div class="iv-beam"></div><div class="iv-nm"><div class="iv-l" aria-label="Ganza"><i>G</i><i>A</i><i>N</i><i>Z</i><i>A</i></div><div class="iv-sub"><b></b><span>Barbearia</span><b></b></div></div></div>
+  <div class="iv-h iv-ha"></div><div class="iv-h iv-hb"></div>
+  <div class="iv-cam"><div class="iv-stage" aria-hidden="true"><div class="iv-glow"></div>
+  <div class="iv-razor"><div class="iv-tilt">
+  <svg class="iv-b" viewBox="0 0 640 220"><defs>
+  <linearGradient id="sg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#e6eaee"/><stop offset=".16" stop-color="#8f979f"/><stop offset=".26" stop-color="#f8fafb"/><stop offset=".5" stop-color="#c3cad0"/><stop offset=".78" stop-color="#8d969e"/><stop offset=".92" stop-color="#e4e8ec"/><stop offset="1" stop-color="#fff"/></linearGradient>
+  <linearGradient id="shg" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#fff" stop-opacity="0"/><stop offset=".5" stop-color="#fff" stop-opacity=".95"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  <path id="bp" d="M322 90L580 90C604 90 618 98 618 108C618 119 608 127 590 130L322 130C316 130 312 121 312 110C312 99 316 90 322 90Z"/>
+  <clipPath id="bc"><use href="#bp"/></clipPath></defs>
+  <use href="#bp" fill="url(#sg)"/>
+  <path d="M330 99L585 99" stroke="#4e565d" stroke-width="1" opacity=".7"/>
+  <path d="M372 108L548 108" stroke="#000" stroke-opacity=".28" stroke-width="2"/><path d="M372 110.5L548 110.5" stroke="#fff" stroke-opacity=".7" stroke-width="1"/>
+  <path d="M330 129.4L590 129.4" stroke="#fff" stroke-width="1.4"/>
+  <text x="392" y="123" font-family="Georgia,serif" font-weight="700" font-size="11" letter-spacing="4" fill="#323a41" opacity=".55">GANZA Co.</text>
+  <g clip-path="url(#bc)"><g class="iv-sh"><rect x="-120" y="80" width="110" height="60" fill="url(#shg)" transform="skewX(-24)"/></g></g></svg>
+  <svg class="iv-hd" viewBox="0 0 640 220"><defs>
+  <linearGradient id="hg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#7a5636"/><stop offset=".45" stop-color="#322013"/><stop offset="1" stop-color="#120b06"/></linearGradient>
+  <linearGradient id="bg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff1b8"/><stop offset=".35" stop-color="#d4a94c"/><stop offset=".7" stop-color="#8a6420"/><stop offset="1" stop-color="#d9b25e"/></linearGradient>
+  <linearGradient id="hl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#fff" stop-opacity=".28"/><stop offset=".5" stop-color="#fff" stop-opacity="0"/></linearGradient>
+  <radialGradient id="pg" cx=".35" cy=".3" r=".8"><stop offset="0" stop-color="#fff6cf"/><stop offset=".5" stop-color="#cfa646"/><stop offset="1" stop-color="#6b4d14"/></radialGradient>
+  <path id="hp" d="M40 100C40 84 60 78 90 80L300 86C322 87 336 96 336 110C336 124 322 133 300 134L90 140C60 142 40 136 40 120Z"/></defs>
+  <use href="#hp" fill="url(#hg)"/><use href="#hp" fill="url(#hl)"/>
+  <path d="M292 85L330 88C342 90 347 100 347 110C347 120 342 130 330 132L292 135Z" fill="url(#bg2)"/>
+  <path d="M70 97L282 100M70 123L282 120" stroke="#c8a45c" stroke-width="1.4" opacity=".65" fill="none"/>
+  <text x="112" y="116" font-family="Georgia,serif" font-weight="700" font-size="19" letter-spacing="5" fill="#c8a45c" opacity=".9">GANZA Co.</text>
+  <path d="M44 96C46 88 62 82 90 82L300 88" stroke="#ffe7b8" stroke-opacity=".6" stroke-width="1.6" fill="none"/>
+  <circle cx="330" cy="110" r="10" fill="url(#pg)" stroke="#3b2a0a" stroke-width="1.5"/><circle cx="330" cy="110" r="3.5" fill="#2a1d08"/></svg>
+  </div></div></div></div>
+  <svg class="iv-cut" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="0" y1="54" x2="100" y2="46" stroke="#fff6dc" stroke-width="2.5" vector-effect="non-scaling-stroke"/></svg>
+  <canvas class="iv-cv" aria-hidden="true"></canvas>
+  <div class="iv-fl" id="fa" aria-hidden="true"></div><div class="iv-fl" id="fb" aria-hidden="true"></div>
+  <button class="iv-skp" type="button" aria-label="Pular animação de abertura">Pular</button>
 </div>
 
 <!-- ================= NAVBAR ================= -->
@@ -857,61 +810,187 @@
   var $ = function (s) { return document.querySelector(s); };
   var reduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---------- introdução: facho de luz forja o nome ---------- */
+  /* ---------- introdução: navalha 3D corta e revela a marca (ref. enviada) ---------- */
   var introEl = $('#intro');
-  var forja = $('#forja');
-  var camadas = [$('#nfTopo'), $('#nfEspelho')];
-  camadas.forEach(function (parte, pi) {
-    var t = (parte.textContent || 'GANZA').trim().split(' ').join('');
-    parte.textContent = '';
-    for (var i = 0; i < t.length; i++) {
-      var lf = document.createElement('span');
-      lf.className = 'lf';
-      var li = document.createElement('span');
-      li.className = 'li';
-      li.textContent = t[i];
-      var atraso = 1.15 + i * 0.42 + (pi === 1 ? 0.2 : 0);
-      li.style.animationDelay = atraso + 's';
-      lf.appendChild(li);
-      parte.appendChild(lf);
-    }
-  });
-  introEl.insertAdjacentHTML('beforeend',
-    '<div class="poeira" aria-hidden="true">' +
-    '<i style="left:9%; animation-delay:0s"></i>' +
-    '<i style="left:26%; animation-delay:1.2s; width:3px; height:3px"></i>' +
-    '<i style="left:43%; animation-delay:2.4s"></i>' +
-    '<i style="left:61%; animation-delay:.6s; width:5px; height:5px"></i>' +
-    '<i style="left:78%; animation-delay:1.8s"></i>' +
-    '<i style="left:91%; animation-delay:3s; width:3px; height:3px"></i>' +
-    '</div>' +
-    '<div class="intro-hint">toque para pular<i></i></div>');
+  var introAnim = [], introTos = [], introRaf = 0, introFeita = false;
 
-  var posL = [6, 15, 27, 37, 47, 55, 63, 71, 79, 87, 93, 10, 33, 68, 90, 52, 21, 78];
-  var posT = [16, 64, 8, 76, 28, 88, 12, 58, 24, 70, 42, 40, 94, 92, 30, 4, 82, 52];
-  var ampHtml = '<div class="brilho-amp" aria-hidden="true">';
-  for (var ai = 0; ai < posL.length; ai++) {
-    var tamAmp = 2 + (ai % 4);
-    ampHtml += '<i style="left:' + posL[ai] + '%; top:' + posT[ai] + '%; width:' + tamAmp + 'px; height:' + tamAmp +
-      'px; animation-delay:' + (2.2 + (ai % 9) * 0.34) + 's"></i>';
-  }
-  ampHtml += '</div>';
-  document.querySelector('.palco-nome').insertAdjacentHTML('beforeend', ampHtml);
-
-  if (!reduced) { forja.classList.add('acende'); }
-
-  function fechaIntro() {
+  function encerraIntro() {
+    if (introFeita) return;
+    introFeita = true;
+    cancelAnimationFrame(introRaf);
+    introTos.forEach(function (t) { clearTimeout(t); });
+    introAnim.forEach(function (a) { try { a.cancel(); } catch (err) {} });
+    introAnim = [];
     introEl.classList.add('saida');
     document.querySelector('header').classList.add('hero-in');
     document.body.style.overflow = '';
-    setTimeout(function () { introEl.style.display = 'none'; }, reduced ? 0 : 1000);
+    setTimeout(function () { introEl.style.display = 'none'; }, reduced ? 0 : 950);
+  }
+  function fechaIntro(ms) {
+    if (introFeita) return;
+    if (reduced || !introEl.animate || !ms) { encerraIntro(); return; }
+    var f = introEl.animate([{ opacity: 1 }, { opacity: 0 }], { duration: ms, fill: 'forwards', easing: 'ease-in-out' });
+    f.onfinish = encerraIntro;
   }
   document.body.style.overflow = 'hidden';
-  var saidaTimer = setTimeout(fechaIntro, reduced ? 300 : 7600);
-  introEl.addEventListener('click', function () {
-    clearTimeout(saidaTimer);
-    fechaIntro();
-  });
+
+  try {
+    if (reduced || !introEl.animate) {
+      encerraIntro();
+    } else {
+      var q = function (sel) { return introEl.querySelector(sel); };
+      var qa = function (sel) { return [].slice.call(introEl.querySelectorAll(sel)); };
+      var W = innerWidth, H = innerHeight, razEl = q('.iv-razor');
+      var A = function (el, kf, o) {
+        var a = el.animate(kf, Object.assign({ fill: 'both', easing: 'linear' }, o));
+        introAnim.push(a); return a;
+      };
+
+      /* canvas: poeira flutuante + faíscas com gravidade */
+      var cv = q('.iv-cv'), cx = cv.getContext('2d'),
+          dpr = Math.min(2, devicePixelRatio || 1), P = [], iv, ik;
+      cv.width = W * dpr; cv.height = H * dpr; cx.setTransform(dpr, 0, 0, dpr, 0, 0);
+      for (iv = 0; iv < 44; iv++) {
+        P.push({ x: Math.random() * W, y: Math.random() * H,
+          vx: (Math.random() - .5) * 10, vy: -Math.random() * 12 - 3,
+          s: Math.random() * 1.6 + .5, a: Math.random() * .45 + .12, t: Math.random() * 6, d: 1 });
+      }
+      function burst(x, y, n, sp) {
+        for (var kb = 0; kb < n; kb++) {
+          var anb = Math.random() * 6.283, vb = sp * (.25 + Math.random());
+          P.push({ x: x, y: y, vx: Math.cos(anb) * vb, vy: Math.sin(anb) * vb - sp * .25,
+            s: .8 + Math.random() * 1.8, age: 0, life: .45 + Math.random() * .7 });
+        }
+      }
+      function lineBurst(n, sp) {
+        for (var kl = 0; kl < n; kl++) {
+          var tl = Math.random(),
+              anl = (Math.random() < .5 ? -1 : 1) * (.5 + Math.random() * 1.1) - 1.57,
+              vl = sp * (.3 + Math.random());
+          P.push({ x: tl * W, y: H * (.54 - .08 * tl), vx: Math.cos(anl) * vl * .5, vy: Math.sin(anl) * vl,
+            s: .8 + Math.random() * 2, age: 0, life: .5 + Math.random() * .8 });
+        }
+      }
+      var lastT = performance.now();
+      (function loopAgora(now) {
+        var dt = Math.min(.05, (now - lastT) / 1000); lastT = now;
+        cx.clearRect(0, 0, W, H); cx.globalCompositeOperation = 'lighter';
+        for (var kp = P.length - 1; kp >= 0; kp--) {
+          var pp = P[kp];
+          if (pp.d) {
+            pp.x += pp.vx * dt; pp.y += pp.vy * dt; pp.t += dt * 2;
+            if (pp.y < -5) pp.y = H + 5;
+            if (pp.x < -5) pp.x = W + 5;
+            if (pp.x > W + 5) pp.x = -5;
+            cx.fillStyle = 'rgba(255,205,120,' + (pp.a * (.6 + .4 * Math.sin(pp.t))) + ')';
+            cx.beginPath(); cx.arc(pp.x, pp.y, pp.s, 0, 6.283); cx.fill();
+          } else {
+            pp.age += dt;
+            if (pp.age > pp.life) { P.splice(kp, 1); continue; }
+            pp.vy += 460 * dt; pp.x += pp.vx * dt; pp.y += pp.vy * dt;
+            var al = 1 - pp.age / pp.life;
+            cx.strokeStyle = 'rgba(255,' + (190 + al * 50 | 0) + ',' + (110 + al * 90 | 0) + ',' + al + ')';
+            cx.lineWidth = pp.s;
+            cx.beginPath(); cx.moveTo(pp.x, pp.y); cx.lineTo(pp.x - pp.vx * .035, pp.y - pp.vy * .035); cx.stroke();
+          }
+        }
+        introRaf = requestAnimationFrame(loopAgora);
+      })(performance.now());
+
+      /* câmera: dolly + tremor no momento da marca */
+      var T = 3300;
+      var cam = [[0, 'scale(1)'], [1500, 'scale(1.03)'], [1560, 'translate(5px,-3px) scale(1.035)'],
+        [1600, 'translate(-4px,2px) scale(1.04)'], [1640, 'translate(3px,1px) scale(1.04)'],
+        [1690, 'translate(-2px,0) scale(1.045)'], [1760, 'scale(1.045)'],
+        [2550, 'scale(1.07)'], [3300, 'scale(1.11)']];
+      A(q('.iv-cam'), cam.map(function (c) { return { transform: c[1], offset: c[0] / T }; }), { duration: T });
+      A(q('.iv-stage'), [{ opacity: 0 }, { opacity: 1 }], { duration: 450, easing: 'ease-out' });
+
+      /* navalha 3D gira até a posição */
+      A(q('.iv-tilt'), [
+        { transform: 'rotateX(62deg) rotateY(-38deg) rotateZ(-12deg) scale(.8)', offset: 0, easing: 'ease-in-out' },
+        { transform: 'rotateX(24deg) rotateY(-22deg) rotateZ(-6deg) scale(.95)', offset: .26, easing: 'ease-in-out' },
+        { transform: 'rotateX(10deg) rotateY(-10deg) rotateZ(-2deg) scale(1.02)', offset: .62, easing: 'ease-out' },
+        { transform: 'rotateX(3deg) rotateY(-3deg) rotateZ(0deg) scale(1.08)', offset: .9, easing: 'ease-in-out' },
+        { transform: 'rotateX(0deg) rotateY(0deg) rotateZ(0deg) scale(1.1)', offset: 1 }], { duration: 2700 });
+
+      /* lâmina abre */
+      A(q('.iv-b'), [
+        { transform: 'rotateZ(-180deg) rotateY(0deg)', offset: 0, easing: 'ease-out' },
+        { transform: 'rotateZ(-172deg) rotateY(6deg)', offset: .12, easing: 'cubic-bezier(.5,0,.8,.4)' },
+        { transform: 'rotateZ(-85deg) rotateY(34deg)', offset: .45, easing: 'cubic-bezier(.2,.6,.4,1)' },
+        { transform: 'rotateZ(6deg) rotateY(-8deg)', offset: .75, easing: 'ease-in-out' },
+        { transform: 'rotateZ(-2deg) rotateY(2deg)', offset: .9, easing: 'ease-out' },
+        { transform: 'rotateZ(0deg) rotateY(0deg)', offset: 1 }], { delay: 900, duration: 900 });
+
+      /* brilho percorre o fio */
+      A(q('.iv-sh'), [{ transform: 'translateX(330px)' }, { transform: 'translateX(830px)' }],
+        { delay: 1950, duration: 750, easing: 'ease-in-out' });
+
+      /* halo atrás da navalha + flash no pivô */
+      A(q('.iv-glow'), [{ opacity: 0 }, { opacity: .55, offset: .2 }, { opacity: .6, offset: .46 },
+        { opacity: 1, offset: .5 }, { opacity: .6, offset: .72 }, { opacity: 0 }], { duration: 3200 });
+      A(q('#fa'), [{ opacity: 0 }, { opacity: .8, offset: .25 }, { opacity: 0 }], { delay: 1560, duration: 280 });
+
+      /* golpe: navalha riscando a diagonal quando sai */
+      var rw = razEl.offsetWidth,
+          ang = -Math.atan2(.08 * H, W) * 57.2958,
+          dxs = W * .5 + rw, dys = -dxs * (.08 * H / W);
+      A(razEl, [
+        { transform: 'translate(0px,0px) rotate(0deg)', offset: 0, easing: 'ease-out' },
+        { transform: 'translate(' + (-W * .03) + 'px,' + (H * .006) + 'px) rotate(' + ang * .4 + 'deg)', offset: .35, easing: 'cubic-bezier(.6,0,1,.5)' },
+        { transform: 'translate(' + dxs + 'px,' + dys + 'px) rotate(' + ang + 'deg)', offset: 1 }], { delay: 2550, duration: 620 });
+
+      /* linha do corte acende e apaga */
+      A(q('.iv-cut'), [{ clipPath: 'inset(0 50% 0 50%)' }, { clipPath: 'inset(0 0% 0 0%)' }],
+        { delay: 2700, duration: 320, easing: 'cubic-bezier(.2,.8,.2,1)' });
+      A(q('.iv-cut'), [{ opacity: 1 }, { opacity: 0 }], { delay: 3150, duration: 500, fill: 'forwards' });
+      A(q('#fb'), [{ opacity: 0 }, { opacity: 1, offset: .2 }, { opacity: 0 }], { delay: 2780, duration: 520 });
+
+      /* metades se soltam na diagonal + feixe acende atrás do nome */
+      var easeP = 'cubic-bezier(.75,0,.15,1)';
+      A(q('.iv-ha'), [{ transform: 'translate(0,0)' }, { transform: 'translate(-1.2%,-60%)' }], { delay: 2900, duration: 1000, easing: easeP });
+      A(q('.iv-hb'), [{ transform: 'translate(0,0)' }, { transform: 'translate(1.2%,60%)' }], { delay: 2900, duration: 1000, easing: easeP });
+      A(q('.iv-beam'), [{ opacity: 0, transform: 'scaleY(.05)' }, { opacity: 1, transform: 'scaleY(1)', offset: .3 },
+        { opacity: .3, transform: 'scaleY(1.2)' }], { delay: 2850, duration: 1200, easing: 'ease-out' });
+
+      /* letras: flip 3D vindo do blur, uma a uma + varredura de brilho */
+      qa('.iv-l i').forEach(function (l, k) {
+        A(l, [{ opacity: 0, transform: 'translateY(70%) rotateX(-80deg) scale(.9)', filter: 'blur(10px)' },
+              { opacity: 1, transform: 'none', filter: 'blur(0px)' }],
+          { delay: 3050 + k * 90, duration: 800, easing: 'cubic-bezier(.2,.9,.2,1)' });
+        A(l, [{ backgroundPosition: '160% 0, 0 0' }, { backgroundPosition: '-60% 0, 0 0' }],
+          { delay: 3950 + k * 110, duration: 700, easing: 'ease-in-out' });
+      });
+
+      /* subtítulo contrai o letter-spacing + linhas laterais */
+      A(q('.iv-sub'), [{ opacity: 0, letterSpacing: '1.1em' }, { opacity: 1, letterSpacing: '.5em' }],
+        { delay: 3700, duration: 900, easing: 'cubic-bezier(.2,.8,.2,1)' });
+      A(q('.iv-sub'), [{ opacity: 0 }, { opacity: 1 }], { delay: 3700, duration: 900 });
+      qa('.iv-sub b').forEach(function (b) {
+        A(b, [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { delay: 3800, duration: 700, easing: 'ease-out' });
+      });
+
+      /* faíscas nos momentos-chave */
+      var hx = function () {
+        var r = razEl.getBoundingClientRect();
+        return [r.left + r.width * .5156, r.top + r.height * .5];
+      };
+      introTos.push(setTimeout(function () { var h = hx(); burst(h[0], h[1], 34, 300); }, 1590));
+      introTos.push(setTimeout(function () { lineBurst(130, 380); }, 2780));
+      introTos.push(setTimeout(function () { lineBurst(70, 260); }, 3000));
+
+      /* pular */
+      q('.iv-skp').addEventListener('click', function (e) { e.stopPropagation(); fechaIntro(280); });
+      introEl.addEventListener('click', function () { fechaIntro(280); });
+
+      /* saída automática + segurança */
+      introTos.push(setTimeout(function () { fechaIntro(600); }, 4950));
+      introTos.push(setTimeout(function () { fechaIntro(600); }, 8600));
+    }
+  } catch (err) {
+    encerraIntro();
+  }
 
   /* ---------- navbar sólida + barra de progresso + zap ---------- */
   var nav = document.querySelector('nav');
